@@ -1,0 +1,32 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} ADMINISTRATEUR{% endblock %}
+
+{% block body %}
+
+<div class="col-lg-9">
+<h3 class="my-4">Nouvel Article</h3>
+
+
+        {{ form_start(form) }}
+
+            {{ form_label(form.titre, "titre : " | capitalize) }}
+            {{ form_widget(form.titre)}}
+
+            {{ form_label(form.texte, "texte : " | capitalize) }}
+            {{ form_widget(form.texte)}}
+
+            {{ form_label(form.image, "image : " | capitalize) }}
+            {{ form_widget(form.image)}}
+
+            
+
+            <button class="btn mt-4 btn-primary">Valider</button>
+
+        {{ form_end(form) }}
+    
+
+</div>
+{% endblock %}
+
