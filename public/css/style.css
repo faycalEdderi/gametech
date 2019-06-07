@@ -1,0 +1,29 @@
+.formulaire{
+	display: flex;
+	
+	flex-direction: column;
+	width: 70%;	
+}
+
+.formcontainer{
+
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	
+
+}
+
+
+
+.formulaire input{
+color: blue;
+width: 100%;
+
+}
+
+.formulaire textarea{
+	color: blue;
+	width: 100%;
+	
+	}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Gaming Shop | {% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    </head>
+    <body>
+     <div></div>
+
+        {% block body %}{% endblock %}
+        
+
+
+
+        
+
+        <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+        <script src="{{ asset('js/addCart.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+
+
+
+
