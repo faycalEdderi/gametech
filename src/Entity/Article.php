@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Categorie;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+       /**
+     * Many features have one product. This is the owning side.
+     * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="article")
+     * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
+     */
+    private $categorie;
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -30,6 +39,11 @@ class Article
      * @ORM\Column(type="text")
      */
     private $texte;
+
+     /**
+     * @ORM\Column(type="text")
+     */
+    private $accroche;
 
     public function getId(): ?int
     {
@@ -71,4 +85,28 @@ class Article
 
         return $this;
     }
+    public function getAccroche(): ?string
+    {
+        return $this->accroche;
+    }
+
+    public function setAccroche(string $accroche): self
+    {
+        $this->accroche = $accroche;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+  
 }

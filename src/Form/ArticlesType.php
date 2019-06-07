@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -54,6 +56,23 @@ class ArticlesType extends AbstractType
 			            'minMessage' => 'Le texte doit comporter au minimum {{ limit }} caractères',
 		            ])
 	            ]
+			])
+			->add('accroche', TextareaType::class, [
+            	'constraints' => [
+		            new NotBlank([
+			            'message' => "Veuillez saisir un texte d'accroche"
+		            ]),
+		            new Length([
+			            'max' => 30,
+			            'maxMessage' => 'Le texte doit comporter au minimum {{ limit }} caractères',
+		            ])
+	            ]
+			])
+			->add('categorie', EntityType::class, [
+                'class'=>Categorie::class, 
+                'choice_label'=>"name",
+                'placeholder'=>""
+        
             ])
         ;
     }
