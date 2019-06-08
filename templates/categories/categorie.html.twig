@@ -1,0 +1,35 @@
+{% extends 'theme.html.twig' %}
+
+{% block title %}{{parent() }}{% endblock %}
+
+{% block body %}
+
+
+
+   
+<div class="col-lg-9 m-5">
+
+<div class="row d-flex justify-content-center">
+  {% for article in afficher %}
+
+        <div class="col-sm-6  col-md-4 col-lg-3 col-xl-2 mb-4 ">
+          <div class="card h-100">
+           <a href=" {{ url('article.details', { id : article.id}) }}">
+            <img class="card-img-top" src="{{ asset('img/' ~ article.image) }}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                 {{  article.titre  | capitalize}}
+              </h4>
+            </a>
+              
+              <p class="card-text">{{article.accroche | capitalize}} </p>
+            </div>
+            
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+
+</div>
+ 
+{% endblock %}

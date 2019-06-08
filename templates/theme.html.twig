@@ -2,20 +2,20 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Gaming Shop | {% endblock %}</title>
+        <title>{% block title %}GameTech  {% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
-     <div></div>
+     <div>{% include 'inc/navbar.html.twig'%}</div>
 
         {% block body %}{% endblock %}
         
 
 
 
-        
+        <div>{% include 'inc/footer.html.twig'%}</div>
 
         <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
