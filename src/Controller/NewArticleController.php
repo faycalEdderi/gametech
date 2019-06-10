@@ -16,6 +16,7 @@ class NewArticleController extends AbstractController
 {
     /**
      * @Route("admin/new/article", name="new_article")
+     * @Route("/admin/update/{id}", name="article.update")
      */
     public function index(Request $request, ObjectManager $objectManager, int $id = null, ArticleRepository $articleRepository):Response
     {
@@ -52,6 +53,26 @@ class NewArticleController extends AbstractController
 				$extension = $uploadedFile->guessExtension();
 				$uploadedFile->move('img/', "$imageName.$extension");
 				$entity->setImage("$imageName.$extension");
+            }
+            
+            
+			// si l'entité est mise à jour et qu'une image n'a pas été sélectionnée
+			elseif($entity->getId() && !$entity->getImage()){
+				// récupération de la propriété dynamique prevImage pour remplir la propriété image
+				$entity->setImage( $entity->prevImage );
+				//dd($entity);
+			}
+			// si l'entité est mise à jour et qu'une image a été sélectionnée
+			elseif($entity->getId() && $entity->getImage()){
+				// unlink : suppression de l'ancienne image
+				unlink("img/{$entity->prevImage}");
+
+				// transfert de la nouvelle image
+				$imageName = bin2hex(random_bytes(16));
+				$uploadedFile = $entity->getImage();
+				$extension = $uploadedFile->guessExtension();
+				$uploadedFile->move('img/', "$imageName.$extension");
+				$entity->setImage("$imageName.$extension");
 			}
        
             $objectManager->persist($entity);
@@ -59,11 +80,13 @@ class NewArticleController extends AbstractController
  
             //$this->addFlash('notice', 'L\'article été ajouté');
  
-            return $this->redirectToRoute('accueil');
+            return $this->redirectToRoute('articles.dev');
          }
 
         return $this->render('new_article/index.html.twig', [
             'form' => $form->createView(),
         ]);
-    }
+	}
+	
+	
 }

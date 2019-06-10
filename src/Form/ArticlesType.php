@@ -26,6 +26,17 @@ class ArticlesType extends AbstractType
 				'mimeTypesMessage' => "Formats d'image acceptés: jpeg, gif, png, webp."
 			])
 		];
+
+		if(!$entity->getId()){
+    		array_push(
+		        $constraintsImage,
+			    new NotBlank([
+				    'message' => 'Veuillez sélectionner une image'
+			    ])
+	        );
+	    }
+
+
 		
         $builder
             ->add('titre', TextType::class, [
@@ -42,6 +53,7 @@ class ArticlesType extends AbstractType
 	            ]
             ])
             ->add('image', FileType::class, [
+				
             	'constraints' => $constraintsImage,
 	            'help' => 'Veuillez sélectionner une image au format JPG, GIF, PNG, SVG ou WebP',
 	            'data_class' => null
