@@ -76,13 +76,6 @@ class PrincipalController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/inscription", name="inscription")
-     */
-    public function inscription():Response
-    {
-        
-        return $this->render('inscription/inscription.html.twig');
-    }
+ 
   
 }
