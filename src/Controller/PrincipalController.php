@@ -75,4 +75,14 @@ class PrincipalController extends AbstractController
             'article' => $result,
         ]);
     }
+
+    /**
+     * @Route("/inscription", name="inscription")
+     */
+    public function inscription():Response
+    {
+        
+        return $this->render('inscription/inscription.html.twig');
+    }
+  
 }
