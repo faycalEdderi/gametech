@@ -75,8 +75,8 @@ class ArticlesType extends AbstractType
 			            'message' => "Veuillez saisir un texte d'accroche"
 		            ]),
 		            new Length([
-			            'max' => 30,
-			            'maxMessage' => 'Le texte doit comporter au minimum {{ limit }} caractères',
+			            'max' => 150,
+			            'maxMessage' => 'Le texte doit comporter maximum {{ limit }} caractères',
 		            ])
 	            ]
 			])
