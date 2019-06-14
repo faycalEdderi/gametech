@@ -21,4 +21,12 @@
 
 }
 
+.newArticle{
+
+	display: flex;
+	flex-direction: column;
+	width: 70%
+
+}
+
 

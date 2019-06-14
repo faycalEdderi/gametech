@@ -344,22 +344,22 @@
           <h1 class="h3 mb-4 text-gray-800">Publier un article </h1>
 
           {{ form_start(form) }}
-        <div class="form-group formulaire">
+        <div class="form-group newArticle">
 
-            <p>{{ form_label(form.titre, "titre : " | capitalize) }}</p>
-            <p>{{ form_widget(form.titre)}}</p>
+             {{ form_label(form.titre, "titre : " | capitalize) }} 
+             {{ form_widget(form.titre)}}
 
-             <p>{{ form_label(form.accroche, "Phrase d'accroche : " | capitalize) }}
-            <p>{{ form_widget(form.accroche)}}</p>
+              {{ form_label(form.accroche, "Phrase d'accroche : " | capitalize) }}
+             {{ form_widget(form.accroche)}} 
 
-           <p> {{ form_label(form.texte, "texte : " | capitalize) }}</p>
+             {{ form_label(form.texte, "texte : " | capitalize) }} 
             {{ form_widget(form.texte)}}
 
-           <p> {{ form_label(form.image, "image : " | capitalize) }}</p>
-            <p>{{ form_widget(form.image)}}</p>
+             {{ form_label(form.image, "image : " | capitalize) }} 
+             {{ form_widget(form.image)}} 
 
-            <p>{{ form_label(form.categorie, "categorie : " | capitalize) }}</p>
-           <p> {{ form_widget(form.categorie)}}</p>
+             {{ form_label(form.categorie, "categorie : " | capitalize) }} 
+             {{ form_widget(form.categorie)}} 
 
             
 
