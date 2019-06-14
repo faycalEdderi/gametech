@@ -1,29 +1,24 @@
+
 .formulaire{
 	display: flex;
-	
-	flex-direction: column;
-	width: 70%;	
-}
-
-.formcontainer{
-
-	display: flex;
 	justify-content: center;
-	width: 100%;
+	align-content: flex-start;
+	
+	
+}
+
+.groupeGauche{
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
 	
 
 }
 
-
-
-.formulaire input{
-color: blue;
-width: 100%;
+.groupeDroite{
+	display: flex;
+	flex-direction: column;
 
 }
 
-.formulaire textarea{
-	color: blue;
-	width: 100%;
-	
-	}
+

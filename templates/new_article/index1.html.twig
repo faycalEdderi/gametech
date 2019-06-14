@@ -1,0 +1,42 @@
+
+{% extends 'theme.html.twig' %}
+
+{% block title %} {{parent() }} | ADMINISTRATEUR | Nouvel article{% endblock %}
+
+{% block body %}
+
+
+<h2 class="text-center mt-3 mb-3 ">AJOUTER UN ARTICLE</h2>
+
+<div class="formcontainer ">
+
+
+
+        {{ form_start(form) }}
+        <div class="form-group formulaire">
+
+            <p>{{ form_label(form.titre, "titre : " | capitalize) }}</p>
+            <p>{{ form_widget(form.titre)}}</p>
+
+             <p>{{ form_label(form.accroche, "Phrase d'accroche : " | capitalize) }}
+            <p>{{ form_widget(form.accroche)}}</p>
+
+           <p> {{ form_label(form.texte, "texte : " | capitalize) }}</p>
+            {{ form_widget(form.texte)}}
+
+           <p> {{ form_label(form.image, "image : " | capitalize) }}</p>
+            <p>{{ form_widget(form.image)}}</p>
+
+            <p>{{ form_label(form.categorie, "categorie : " | capitalize) }}</p>
+           <p> {{ form_widget(form.categorie)}}</p>
+
+            
+
+            <button class="btn mt-4 btn-primary">Valider</button>
+        </div>
+        {{ form_end(form) }}
+    
+
+</div>
+{% endblock %}
+
