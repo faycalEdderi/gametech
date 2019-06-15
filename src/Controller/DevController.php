@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 
+use App\Entity\User;
+use App\Form\AjoutUserType;
 use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,6 +61,58 @@ class DevController extends AbstractController
             'afficher' => $result,
         ]);
     }
+
+    // suppression d'un utilisateur
+	/**
+	 * @Route("/admin/deleteUser/{id}", name="user.delete")
+	 */
+	public function userDelete(int $id, UserRepository $userRepository, ObjectManager $objectManager):Response
+	{
+		// sélection de l'entité par son identifiant
+		$entity = $userRepository->find($id);
+
+		// suppression de l'entité
+		$objectManager->remove($entity);
+		$objectManager->flush();
+
+		
+
+		// message
+		$this->addFlash('notice', "l'utilisateur a été supprimé");
+
+		// redirection
+		return $this->redirectToRoute('user.dev');
+	}
+
+    /**
+     * @Route("admin/new/user", name="new.user")
+     * @Route("/admin/updateUser/{id}", name="user.update")
+     */
+    public function newUser(Request $request, ObjectManager $objectManager, int $id = null, UserRepository $userRepository):Response
+    {
+        $entity = $id ? $userRepository->find($id) : new User();
+        $type = AjoutUserType::class;
+
+        
+		$form = $this->createForm($type, $entity);
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+           
+           
+       
+            $objectManager->persist($entity);
+			$objectManager->flush();
+ 
+            //$this->addFlash('notice', 'L\'article été ajouté');
+ 
+            return $this->redirectToRoute('user.dev');
+         }
+
+        return $this->render('dev/newUser.html.twig', [
+            'form' => $form->createView(),
+        ]);
+	}
 
     
 

@@ -25,8 +25,10 @@
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Age</th>
+                      <th>Genre</th>
                       <th>Region</th>
-                      <th>Sexe</th>
+                      <th>Action</th>
+                      
                     </tr>
                   </thead>
 
@@ -36,21 +38,29 @@
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Age</th>
+                      <th>Genre</th>
                       <th>Region</th>
-                      <th>Sexe</th>
+                      <th>Action</th>
+                      
                     </tr>
                   </tfoot>
 
                   {% for user in afficher %}
                   <tbody>
                     <tr>
-                      <td>{{user.email | capitalize}}</td>
+                      <td>{{user.email }}</td>
                       <td>{{user.nom | capitalize}}</td>
                       <td>{{user.prenom | capitalize}}</td>
                       <td>{{user.age | capitalize}}</td>
-                      <td>{{user.Region | capitalize}}</td>
-                      
                       <td>{{user.sexe | capitalize}}</td>
+                      <td>{{user.Region | capitalize}}</td>
+
+                  {# Empecher la suppression de l'admin !#}
+                    {% if user.email != "zeraisse@live.fr" %}
+
+                      <td><a  class="btn btn-danger issou" data-toggle="modal" data-target="#exampleModal" value="Supprimer" href="{{ url('user.delete', {id: user.id}) }}"> Supprimer </a></td>
+                      
+                     {% endif %} 
                     </tr>
                     {% endfor %}
                     
@@ -65,5 +75,12 @@
 
       </div>
       <!-- End of Main Content -->
-
+      
+      {% include 'inc/modal.html.twig' %}
      {% endblock %}
+
+     {# bloc javascripts #}
+{% block javascripts %}
+	<script src="{{ asset('js/confirmDeleteModal.js') }}"></script>
+	<script src="{{ asset('js/deleteConfirmAlert.js') }}"></script>
+{% endblock %}
