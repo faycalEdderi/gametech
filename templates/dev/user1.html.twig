@@ -1,0 +1,35 @@
+{% extends 'administrateur.html.twig' %}
+
+{% block title %} Utilisateurs{% endblock %}
+
+{% block body %}
+
+
+<div class="col-lg-9 m-5">
+
+
+  <div class="row d-flex justify-content-center">
+    {% for user in afficher %}
+
+      {{user.email | capitalize}}
+      
+      
+      {{user.nom | capitalize}}
+      {{user.prenom | capitalize}}
+      {{user.Region | capitalize}}
+      {{user.age | capitalize}}
+      {{user.sexe | capitalize}}
+              
+            </div>
+          </div>
+    {% endfor %}
+  </div>
+</div>
+{% include 'inc/modal.html.twig' %}
+{% endblock %}
+
+{# bloc javascripts #}
+{% block javascripts %}
+	<script src="{{ asset('js/confirmDeleteModal.js') }}"></script>
+	<script src="{{ asset('js/deleteConfirmAlert.js') }}"></script>
+{% endblock %}

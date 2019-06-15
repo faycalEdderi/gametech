@@ -1,0 +1,69 @@
+{% extends 'administrateur.html.twig' %}
+
+{% block body %}
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Table utilisateurs</h1>
+          
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Base de donnée utilisateurs</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Nom</th>
+                      <th>Prenom</th>
+                      <th>Age</th>
+                      <th>Region</th>
+                      <th>Sexe</th>
+                    </tr>
+                  </thead>
+
+                  <tfoot>
+                    <tr>
+                      <th>Email</th>
+                      <th>Nom</th>
+                      <th>Prenom</th>
+                      <th>Age</th>
+                      <th>Region</th>
+                      <th>Sexe</th>
+                    </tr>
+                  </tfoot>
+
+                  {% for user in afficher %}
+                  <tbody>
+                    <tr>
+                      <td>{{user.email | capitalize}}</td>
+                      <td>{{user.nom | capitalize}}</td>
+                      <td>{{user.prenom | capitalize}}</td>
+                      <td>{{user.age | capitalize}}</td>
+                      <td>{{user.Region | capitalize}}</td>
+                      
+                      <td>{{user.sexe | capitalize}}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+     {% endblock %}

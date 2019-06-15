@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,6 +46,18 @@ class DevController extends AbstractController
 		// redirection
 		return $this->redirectToRoute('articles.dev');
 	}
+
+	 /**
+     * @Route("/admin/user", name="user.dev")
+     */
+    public function user(UserRepository $userRepository):Response
+    {
+        $result = $userRepository->findAll();
+
+        return $this->render('dev/user.html.twig', [
+            'afficher' => $result,
+        ]);
+    }
 
     
 
