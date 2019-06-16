@@ -15,8 +15,8 @@
              {{ form_widget(form.email)}}
              {#{ form_errors(form.email) }#}
 
-             {{ form_label(form.password, "Mot de passe : " | capitalize) }} 
-             {{ form_widget(form.password)}}
+             {{ form_label(form.plainPassword, "Mot de passe : " | capitalize) }} 
+             {{ form_widget(form.plainPassword)}}
              {#{ form_errors(form.password) }#}
 
               {{ form_label(form.nom, "nom " | capitalize) }}
@@ -35,8 +35,8 @@
              {{ form_widget(form.sexe)}}
              {#{ form_errors(form.sexe) }#} 
 
-              {{ form_label(form.Region, "region : " | capitalize) }} 
-             {{ form_widget(form.Region)}}
+              {{ form_label(form.region, "region : " | capitalize) }} 
+             {{ form_widget(form.region)}}
              {#{ form_errors(form.Region) }#}
 
             

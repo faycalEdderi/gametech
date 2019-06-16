@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\AjoutUserType;
+use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +13,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DevController extends AbstractController
 {
@@ -88,23 +90,32 @@ class DevController extends AbstractController
      * @Route("admin/new/user", name="new.user")
      * @Route("/admin/updateUser/{id}", name="user.update")
      */
-    public function newUser(Request $request, ObjectManager $objectManager, int $id = null, UserRepository $userRepository):Response
+    public function newUser(Request $request, ObjectManager $objectManager, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {
-        $entity = $id ? $userRepository->find($id) : new User();
-        $type = AjoutUserType::class;
+        $user = $id ? $userRepository->find($id) : new User();
+        $type = RegistrationFormType::class;
 
         
-		$form = $this->createForm($type, $entity);
-        $form->handleRequest($request);
+
         
-        if($form->isSubmitted() && $form->isValid()){
-           
-           
-       
-            $objectManager->persist($entity);
-			$objectManager->flush();
- 
-            //$this->addFlash('notice', 'L\'article été ajouté');
+        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            
+            // encode the plain password
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
  
             return $this->redirectToRoute('user.dev');
          }
