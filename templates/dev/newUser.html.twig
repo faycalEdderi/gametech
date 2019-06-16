@@ -6,7 +6,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Ajouter un utilisateur </h1>
+          <h1 class="h3 mb-4 text-gray-800">Utilisateur </h1>
 
           {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
         <div class="form-group newArticle">
@@ -15,9 +15,13 @@
              {{ form_widget(form.email)}}
              {#{ form_errors(form.email) }#}
 
+            
+           
              {{ form_label(form.plainPassword, "Mot de passe : " | capitalize) }} 
              {{ form_widget(form.plainPassword)}}
+             
              {#{ form_errors(form.password) }#}
+             
 
               {{ form_label(form.nom, "nom " | capitalize) }}
              {{ form_widget(form.nom)}} 
@@ -52,6 +56,8 @@
       <!-- End of Main Content -->
 
 {% endblock %}
+
+
 
 
     

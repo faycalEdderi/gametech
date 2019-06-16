@@ -20,7 +20,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="{{asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -109,16 +109,16 @@
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pages d'identification:</h6>
-            <a class="collapse-item" href="login.html">Connexion</a>
-            <a class="collapse-item" href="register.html">Inscription</a>
+            <a class="collapse-item" href="{{ url('app_login') }}">Connexion</a>
+            <a class="collapse-item" href="{{ url('app_register') }}">Inscription</a>
             <a class="collapse-item" href="forgot-password.html">Mot de passe oublié</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Autres Pages:</h6>
             <a class="collapse-item" href="404.html">Accueil</a>
-            <a class="collapse-item active" href="{{ asset('/nouveau') }}">Nouveauté</a>
-             <a class="collapse-item active" href="{{ asset('/ps4') }}">Playstation 4</a>
-              <a class="collapse-item active" href="{{ asset('/xbox') }}">Xbox One</a>
-               <a class="collapse-item active" href="{{ asset('/pc') }}">PC</a>
+            <a class="collapse-item active" href="{{ url('nouveau') }}">Nouveauté</a>
+             <a class="collapse-item active" href="{{ url('ps4') }}">Playstation 4</a>
+              <a class="collapse-item active" href="{{ url('xbox') }}">Xbox One</a>
+               <a class="collapse-item active" href="{{ url('pc') }}">PC</a>
           </div>
         </div>
       </li>
@@ -260,7 +260,7 @@
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <img class="rounded-circle" src="asset('https://source.unsplash.com/fn_BT9fwg_E/60x60')" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
@@ -270,7 +270,7 @@
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <img class="rounded-circle" src="{{asset('https://source.unsplash.com/AU4VPcFN4LE/60x60')}}" alt="">
                     <div class="status-indicator"></div>
                   </div>
                   <div>
@@ -280,7 +280,7 @@
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <img class="rounded-circle" src="{{asset('https://source.unsplash.com/CS2uCrpNzJY/60x60')}}" alt="">
                     <div class="status-indicator bg-warning"></div>
                   </div>
                   <div>
@@ -290,7 +290,7 @@
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <img class="rounded-circle" src="{{asset('https://source.unsplash.com/Mv9hjnEUHR4/60x60')}}" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div>
@@ -335,3 +335,5 @@
         <!-- End of Topbar -->
  
         {% endblock %}
+
+        

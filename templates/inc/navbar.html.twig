@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Accueil" href="{{ asset('/') }}">GameTech</a>
+  <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Accueil" href="{{ url('accueil') }}">GameTech</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,16 +7,16 @@
   <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
     <ul  class="navbar-nav m-auto">
      <li class="nav-item active">
-        <a class="nav-link" href="{{ asset('/nouveau') }}">Nouveauté <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ url('nouveau') }}">Nouveauté <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{ asset('/ps4') }}">Playstation 4 <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ url('ps4') }}">Playstation 4 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{ asset('/xbox') }}">Xbox One <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ url('xbox') }}">Xbox One <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{ asset('/pc') }}">PC <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ url('pc') }}">PC <span class="sr-only">(current)</span></a>
       </li>
      
       
@@ -26,14 +26,14 @@
     </ul>
     {% if app.user == false %}
       <div class="my-2 my-lg-0">
-        <a  href="{{ asset('/register') }}" >
-        <img data-toggle="tooltip" data-placement="bottom" title="Créer un compte" alt="s'enregistrer" src="https://img.icons8.com/ios/30/000000/login-rounded-filled.png"></a>
+        <a  href="{{ url('app_register') }}" >
+        <img data-toggle="tooltip" data-placement="bottom" title="Créer un compte" alt="s'enregistrer" src="{{asset('https://img.icons8.com/ios/30/000000/login-rounded-filled.png')}}"></a>
 
-        <a href="{{ asset('/login') }}" >
-              <img data-toggle="tooltip" data-placement="bottom" title="Connexion" alt="connexion" src="https://img.icons8.com/ios-glyphs/30/000000/person-male.png">
+        <a href="{{ url('app_login') }}" >
+              <img data-toggle="tooltip" data-placement="bottom" title="Connexion" alt="connexion" src="{{asset('https://img.icons8.com/ios-glyphs/30/000000/person-male.png')}}">
             </a>
       {% else %}
-        <a href="{{ asset('/logout') }}"><img src="https://img.icons8.com/ios/35/000000/exit-filled.png"></a>
+        <a href="{{ url('app_logout') }}"><img src="{{asset('https://img.icons8.com/ios/35/000000/exit-filled.png')}}"></a>
     {% endif %}
  
   

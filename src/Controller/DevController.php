@@ -90,20 +90,17 @@ class DevController extends AbstractController
      * @Route("admin/new/user", name="new.user")
      * @Route("/admin/updateUser/{id}", name="user.update")
      */
-    public function newUser(Request $request, ObjectManager $objectManager, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
+    public function newUser(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {
         $user = $id ? $userRepository->find($id) : new User();
         $type = RegistrationFormType::class;
 
-        
-
-        
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             
+           
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -123,8 +120,11 @@ class DevController extends AbstractController
         return $this->render('dev/newUser.html.twig', [
             'form' => $form->createView(),
         ]);
+   
 	}
 
+    
+    
     
 
 
