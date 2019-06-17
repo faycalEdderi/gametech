@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\AjoutUserType;
+use App\Form\ModifUserType;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
@@ -122,7 +123,6 @@ class DevController extends AbstractController
         ]);
    
 	}
-
     
     
     
