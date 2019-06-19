@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use App\Form\ModifMdpType;
 use App\Form\AjoutUserType;
 use App\Form\ModifUserType;
 use App\Form\RegistrationFormType;
@@ -146,6 +147,40 @@ class DevController extends AbstractController
          }
 
         return $this->render('dev/updateUser.html.twig', [
+            'form' => $form->createView(),
+        ]);
+   
+    }
+    
+    /**
+     * @Route("/admin/modifMdp/{id}", name="modif.mdp")
+     */
+    public function modifMdp(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
+    {
+        $user = $id ? $userRepository->find($id) : new User();
+        $type = ModifMdpType::class;
+
+        $form = $this->createForm(ModifMdpType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+ 
+            return $this->redirectToRoute('user.profile');
+         }
+
+        return $this->render('dev/modifMdp.html.twig', [
             'form' => $form->createView(),
         ]);
    
