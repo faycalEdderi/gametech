@@ -10,6 +10,7 @@ use App\Form\ModifUserType;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
+use App\Repository\ContactRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,15 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DevController extends AbstractController
 {
+    /**
+     * @Route("/admin/accueil", name="accueil.dev")
+     */
+    public function accueil():Response
+    {
+        
+
+        return $this->render('dev/accueil.html.twig');
+    }
     /**
      * @Route("/admin/articles", name="articles.dev")
      */
@@ -186,6 +196,54 @@ class DevController extends AbstractController
    
 	}
     
+
+// AFFICHAGE DES MESSAGES DU FORMULAIRE DE CONTACT
+     /**
+     * @Route("/admin/msg", name="msg.dev")
+     */
+    public function msg(ContactRepository $contactRepository):Response
+    {
+        $result = $contactRepository->findAll();
+
+        return $this->render('dev/message.html.twig', [
+            'afficher' => $result,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/message/{id}", name="message.details")
+     */
+    public function details(int $id, ContactRepository $contactRepository):Response
+    {
+        $result = $contactRepository->find($id);
+        //dd($result);
+        return $this->render('dev/msgDetails.html.twig', [
+            'afficher' => $result,
+        ]);
+    }
+
+    // suppression d'un message
+	/**
+	 * @Route("/admin/deleteMsg/{id}", name="msg.delete")
+	 */
+	public function msgDelete(int $id, ContactRepository $contactRepository, ObjectManager $objectManager):Response
+	{
+		// sélection de l'entité par son identifiant
+		$entity = $contactRepository->find($id);
+
+		// suppression de l'entité
+		$objectManager->remove($entity);
+		$objectManager->flush();
+
+		
+
+		// message
+		$this->addFlash('notice', "le message a été supprimé");
+
+		// redirection
+		return $this->redirectToRoute('msg.dev');
+	}
+
     
     
 

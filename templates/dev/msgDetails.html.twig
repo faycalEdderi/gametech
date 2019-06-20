@@ -1,0 +1,18 @@
+{% extends 'administrateur.html.twig' %}
+
+{% block title %} {{parent() }} | Mes messages {% endblock %}
+
+{% block body %}
+<ul>
+  <li>De : {{  afficher.email }}</li>
+  <li>Sujet : {{  afficher.objet | capitalize}}</li>
+  <li>Message : {{  afficher.message | capitalize}}</li>
+  <li><a href="mailto:{{ afficher.email }}?subject=[ADMIN GAMETECH] Reponse à votre message&amp;">Envoyer un email</a></li>
+</ul>
+
+
+
+
+
+
+{% endblock %}

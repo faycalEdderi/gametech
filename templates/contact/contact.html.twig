@@ -1,0 +1,43 @@
+{% extends 'theme.html.twig' %}
+
+{% block title %} {{ parent() }}| Contact{% endblock %}
+
+{% block body %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Contact </h1>
+
+          {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
+        <div class="form-group newArticle">
+
+             {{ form_label(form.email, "email : " | capitalize) }} 
+             {{ form_widget(form.email)}}
+             {#{ form_errors(form.email) }#}
+
+            
+           
+             {{ form_label(form.objet, "sujet : " | capitalize) }} 
+             {{ form_widget(form.objet)}}
+             
+             {#{ form_errors(form.objet) }#}
+             
+
+              {{ form_label(form.message, "message " | capitalize) }}
+             {{ form_widget(form.message)}} 
+             {#{ form_errors(form.message) }#}
+
+
+            <button class="btn mt-4 btn-primary">Valider</button>
+        </div>
+        {{ form_end(form) }}
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+{% endblock %}
