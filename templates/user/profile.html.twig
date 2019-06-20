@@ -1,6 +1,7 @@
 {% extends 'theme.html.twig' %}
 
 {% block body %}
+
 <ul>
     <li>Email : {{ app.user.email }}</li>
     <li>Nom : {{ app.user.nom }}  </li>
@@ -8,16 +9,18 @@
     <li>Age : {{ app.user.age }} </li>
     <li>Genre : {{ app.user.sexe }} </li>
     <li>Region : {{ app.user.region }}</li>
-    <a href="" class="btn">Modifier mes informations</a>
+    <a href="{{ url('profile.update', {id : app.user.id}) }}" class="btn">Modifier mes informations</a>
 </ul>
     
     
      
      
     
-       
+      
 
 {% endblock %}
+
+
 
 
     
