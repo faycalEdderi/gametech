@@ -20,6 +20,7 @@ class NewArticleController extends AbstractController
      */
     public function index(Request $request, ObjectManager $objectManager, int $id = null, ArticleRepository $articleRepository):Response
     {
+		//condition si l'id n'est pas vide 
         $entity = $id ? $articleRepository->find($id) : new Article();
         $type = ArticlesType::class;
 

@@ -21,7 +21,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class DevController extends AbstractController
 {
     /**
-     * @Route("/admin/accueil", name="accueil.dev")
+     * @Route("/admin", name="accueil.dev")
      */
     public function accueil():Response
     {

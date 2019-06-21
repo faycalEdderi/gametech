@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Form\ModifMdpType;
 use App\Form\ModifUserType;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,6 +49,43 @@ class UserController extends AbstractController
         ]);
    
     }
+
+//USER MODIFIE MDP
+
+/**
+     * @Route("/user/mdp/{id}", name="user.changeMdp")
+     */
+    public function changeMdp(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
+    {
+        $user = $id ? $userRepository->find($id) : new User();
+        $type = ModifMdpType::class;
+
+        $form = $this->createForm(ModifMdpType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+ 
+            return $this->redirectToRoute('user.profile');
+         }
+
+        return $this->render('user/modifMdp.html.twig', [
+            'form' => $form->createView(),
+        ]);
+   
+	}
+
  
   
 }

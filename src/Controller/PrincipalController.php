@@ -21,11 +21,11 @@ class PrincipalController extends AbstractController
     }
 
     /**
-     * @Route("/nouveau", name="nouveau")
+     * @Route("/nintendo", name="nintendo")
      */
-    public function nouveau(ArticleRepository $articleRepository):Response
+    public function nintendo(ArticleRepository $articleRepository):Response
     {
-       $results = $articleRepository->findByCategory("nouveaute");
+       $results = $articleRepository->findByCategory("nintendo");
        return $this->render('categories/categorie.html.twig', [
            'afficher'=> $results
        ]);
