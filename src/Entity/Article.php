@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Entity\Categorie;
+use App\Entity\Commentaire;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -44,6 +47,20 @@ class Article
      * @ORM\Column(type="text")
      */
     private $accroche;
+
+    /**
+	 * un produit est relié à plusieurs commentaires
+	 * NE PAS OUBLIER : ajouter l'alias ORM
+	 * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="article")
+	 */
+    private $commentaire;
+    
+    public function __construct()
+    {
+        
+        $this->commentaire = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -108,5 +125,37 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaire(): Collection
+    {
+        return $this->commentaire;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaire->contains($commentaire)) {
+            $this->commentaire[] = $commentaire;
+            $commentaire->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaire->contains($commentaire)) {
+            $this->commentaire->removeElement($commentaire);
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getArticle() === $this) {
+                $commentaire->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
   
 }
