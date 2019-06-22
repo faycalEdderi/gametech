@@ -7,6 +7,7 @@ use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -14,6 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Category;
 
 class ArticlesType extends AbstractType
 {
@@ -81,11 +83,17 @@ class ArticlesType extends AbstractType
 	            ]
 			])
 			->add('categorie', EntityType::class, [
-                'class'=>Categorie::class, 
-                'choice_label'=>"name",
-                'placeholder'=>""
-        
-            ])
+				
+	        	'class' => Categorie::class,
+				'choice_label' => 'name',
+				'placeholder'=>"",
+				'constraints' => [
+		            new NotBlank([
+			            'message' => "Veuillez saisir une categorie"
+		            ])]
+					        
+		      
+	        ])
         ;
     }
 

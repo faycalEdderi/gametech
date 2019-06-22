@@ -33,7 +33,7 @@ function submitFormComment(e) {
 	});
 
 	
-	//location.reload();
+	location.reload();
 
 	//console.log(formData.entries().next());
 }
