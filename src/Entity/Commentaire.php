@@ -21,12 +21,19 @@ class Commentaire
      */
     private $message;
 
+    
+
     /**
 	
 	 * @ORM\ManyToOne(targetEntity="Article", inversedBy="commentaire")
 	 * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
 	 */
 	private $article;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $userName;
 
 
     public function getId(): ?int
@@ -54,6 +61,18 @@ class Commentaire
     public function setArticle(?Article $article): self
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    public function getUserName(): ?string
+    {
+        return $this->userName;
+    }
+
+    public function setUserName(string $userName): self
+    {
+        $this->userName = $userName;
 
         return $this;
     }

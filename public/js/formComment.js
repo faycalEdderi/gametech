@@ -33,7 +33,7 @@ function submitFormComment(e) {
 	});
 
 	
-	location.reload();
+	//location.reload();
 
 	//console.log(formData.entries().next());
 }
@@ -49,12 +49,13 @@ function commentAddSuccess(response){
 
 	// boucle sur la réponse http
 	response.forEach( commentaire => {
-		// formater la date
-		let date = new Date( comment.datetime.date );
+		
+		
 
 		// append: ajouter du html en fin de balise sans supprimer le contenu précédent
 		$('.comment-list').append(`
 			<hr>
+			<p>${commentaire.userName}</p>
 			<p>${commentaire.message}</p>
 			
 		`);

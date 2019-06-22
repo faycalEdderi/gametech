@@ -17,15 +17,17 @@ class CommentaireController extends AbstractController
      */
     public function add(Request $request, ArticleRepository $articleRepository, ObjectManager $objectManager):JsonResponse
     {
-		$userName = $request->request->get('name');
+		$userName = $request->request->get('userName');
 		
 		
+		$message = $request->request->get('message');
 		$id = $request->request->get('id');
 		//dd($message, $id);
 
 	    
 	    $commentaire = new Commentaire();
-	    $commentaire->setMessage($message);
+		$commentaire->setMessage($message);
+		$commentaire->setUserName($userName);
 	    
 
 	    
