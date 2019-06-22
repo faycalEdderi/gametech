@@ -34,7 +34,9 @@
   <div class="row mt-3">
 		<div class="col">
 			<h4>Ajouter un commentaire</h4>
-			<form method="post" class="form-comment">
+			{% if app.user %}
+			<form method="post"  class="form-comment">
+			<input type="text" name="name" value="{{ app.user.nom}}">
 				<p>
 					<textarea class="form-control" name="message" id="message" cols="60" rows="5"></textarea>
 				</p>
@@ -44,9 +46,13 @@
 					<button  type="submit" class="btn btn-info">Valider</button>
 				</p>
 			</form>
+			{% else %}
+
+			<p> Veuillez vous <a href="{{url('app_login')}}">connecter</a> ou vous <a href="{{url('app_register')}}"> créer un compte </a> pour laisser votre avis. </p>
+			{% endif %}
 			<div class="comment-list">
 				{# affichage des commentaires #}
-        
+        <h3>Commentaires</h3>
 				{% for commentaire in article.commentaire %}
 					<hr>
 					<p>{{ commentaire.message }}</p>
