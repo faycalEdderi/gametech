@@ -1,12 +1,37 @@
 {% extends 'theme.html.twig' %}
 
 {% block title %} Accueil{% endblock %}
-
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/style2.css') }}">{% endblock %}
 {% block body %}
 
 
-<div class="col-lg-9 m-5">
-
+<div class="">
+  <div class="row d-flex justify-content-center">
+    <div class="categorie">
+    <img class="logo" src="{{asset('logo/ps4.png')}}" alt="playstation 4 ">
+      <h3>Playstation 4 </h3>
+      <p>Retrouver ici les dernieres actualité sur la Playstation 4 et les sorties excusives</p>
+      <a class="button" href="#">Actu PS4 </a>
+    </div>
+      <div class="categorie">
+      <img class="logo" src="{{asset('logo/xbox.png')}}" alt="xbox one">
+      <h3>Xbox One </h3>
+      <p>Retrouver ici les dernieres actualité sur la Xbox One et les sorties excusives</p>
+      <a class="button" href="#">Actu Xbox One </a>
+    </div>
+      <div class="categorie">
+      <img class="logo" src="{{asset('logo/switch.png')}}" alt="nintendo switch">
+      <h3>Nintendo Switch </h3>
+      <p>Retrouver ici les dernieres actualité sur la console de Nintendo et les sorties excusives</p>
+      <a class="button" href="#">Actu Nintendo Switch </a>
+    </div>
+      <div class="categorie">
+      <img class="logo" src="{{asset('logo/pc.png')}}" alt="ordinateur ">
+      <h3>PC </h3>
+      <p>Retrouver ici les dernieres actualité gaming sur ordinateur et les sorties excusive</p>
+      <a class="button" href="#">Actu PC </a>
+    </div>
+  </div>
 
   <div class="row d-flex justify-content-center">
     {% for article in afficher %}
