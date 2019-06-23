@@ -47,3 +47,8 @@ display: block;
 	animation-name: fontsizeChange;
 	animation-duration: 4s;
   }
+
+  .sousTitre{
+
+	text-align: center;
+  }
