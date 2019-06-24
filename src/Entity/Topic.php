@@ -9,6 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Topic
 {
+
+    /**
+     * Many features have one product. This is the owning side.
+     * @ORM\ManyToOne(targetEntity="CategoryTopic", inversedBy="topic")
+     * @ORM\JoinColumn(name="category_topic_id", referencedColumnName="id")
+     */
+    private $categoryTopic;
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -68,6 +77,18 @@ class Topic
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getCategoryTopic(): ?CategoryTopic
+    {
+        return $this->categoryTopic;
+    }
+
+    public function setCategoryTopic(?CategoryTopic $categoryTopic): self
+    {
+        $this->categoryTopic = $categoryTopic;
 
         return $this;
     }

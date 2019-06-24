@@ -44,9 +44,6 @@ class ForumController extends AbstractController
         $entity = new Topic();
         $type = CreateTopicType::class;
 
-        
-
-		
 		$form = $this->createForm($type, $entity);
         $form->handleRequest($request);
         
@@ -64,5 +61,56 @@ class ForumController extends AbstractController
         return $this->render('forum/newTopic.html.twig', [
             'form' => $form->createView(),
         ]);
-	}
+    }
+    
+    /**
+     * @Route("/forum/nintendo", name="forum.nintendo")
+     */
+    public function forumNintendo(TopicRepository $topicRepository):Response
+    {
+       $results = $topicRepository->findByCategory("nintendo");
+       return $this->render('forum/forumCategorie.html.twig', [
+           'afficher'=> $results
+       ]);
+    }
+     /**
+     * @Route("/forum/playstation", name="forum.playstation")
+     */
+    public function forumPlaystation(TopicRepository $topicRepository):Response
+    {
+       $results = $topicRepository->findByCategory("playstation");
+       return $this->render('forum/forumCategorie.html.twig', [
+           'afficher'=> $results
+       ]);
+    }
+     /**
+     * @Route("/forum/xbox", name="forum.xbox")
+     */
+    public function forumXbox(TopicRepository $topicRepository):Response
+    {
+       $results = $topicRepository->findByCategory("xbox");
+       return $this->render('forum/forumCategorie.html.twig', [
+           'afficher'=> $results
+       ]);
+    }
+     /**
+     * @Route("/forum/nintendo", name="forum.ordinateur")
+     */
+    public function forumordinateur(TopicRepository $topicRepository):Response
+    {
+       $results = $topicRepository->findByCategory("ordinateur");
+       return $this->render('forum/forumCategorie.html.twig', [
+           'afficher'=> $results
+       ]);
+    }
+     /**
+     * @Route("/forum/divers", name="forum.divers")
+     */
+    public function forumDivers(TopicRepository $topicRepository):Response
+    {
+       $results = $topicRepository->findByCategory("divers");
+       return $this->render('forum/forumCategorie.html.twig', [
+           'afficher'=> $results
+       ]);
+    }
 }

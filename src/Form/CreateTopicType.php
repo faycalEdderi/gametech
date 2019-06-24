@@ -3,8 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Topic;
+
+use App\Entity\CategoryTopic;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -47,6 +50,18 @@ class CreateTopicType extends AbstractType
 		            ])
 	            ]
 			])
+			->add('category_topic', EntityType::class, [
+				
+	        	'class' => CategoryTopic::class,
+				'choice_label' => 'category_name',
+				'placeholder'=>"",
+				'constraints' => [
+		            new NotBlank([
+			            'message' => "Veuillez saisir une categorie"
+		            ])]
+					        
+		      
+	        ])
         ;
     }
 
