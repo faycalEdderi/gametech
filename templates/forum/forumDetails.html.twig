@@ -1,0 +1,15 @@
+{% extends 'theme.html.twig' %}
+
+{% block title %} {{parent() }} | {{afficher.sujet }} {% endblock %}
+
+{% block body %}
+
+            
+            <h4>Sujet : {{afficher.sujet }}</h4>
+            <div class="topicPrincipal">
+              <p>auteur : {{afficher.auteur }}</p>
+              <p>{{afficher.message }}</p>
+            </div>
+
+ 
+{% endblock %}

@@ -52,3 +52,21 @@ display: block;
 
 	text-align: center;
   }
+
+  .title{
+
+	text-align: center;
+	
+  }
+  #newTopicBtn{
+	text-decoration: none;
+  }
+
+  #newTopicBtn:hover{
+	
+	color: white; 
+	background-color: black;
+
+	
+}
+

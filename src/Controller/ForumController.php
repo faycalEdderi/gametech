@@ -21,7 +21,20 @@ class ForumController extends AbstractController
         return $this->render('forum/listForum.html.twig', [
             'afficher'=> $results
         ]);
-	}
+    }
+    
+    /**
+     * @Route("/topic/{id}", name="topic.details")
+     */
+    public function topicDetails(int $id, TopicRepository $topicRepository):Response
+    {
+        $result = $topicRepository->find($id);
+        //dd($result);
+        return $this->render('forum/ForumDetails.html.twig', [
+            'afficher' => $result,
+        ]);
+    }
+
     /**
      * @Route("/user/forum/newTopic", name="newTopic")
      */

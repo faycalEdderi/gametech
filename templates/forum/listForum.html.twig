@@ -1,7 +1,41 @@
 {% extends 'theme.html.twig' %}
 
-{% block title %} Forum {% endblock %}
+{% block title %} {{parent() }} | Forums {% endblock %}
+
 
 {% block body %}
 
+<h2 class="title">Liste des forums</h2>
+<a id="newTopicBtn" class="btn btn-primary" href="{{ url('newTopic')}}">Nouveau sujet </a>
+<table class="table table-bordered" id="dataTable" width="100%" >
+                
+    <thead>
+        <tr>
+            <th>Sujet</th>
+            <th>Auteur</th>
+
+            
+        </tr>
+    </thead>
+
+    <tfoot>
+        <tr>
+            <th>Sujet</th>
+            <th>Auteur</th>>
+
+            
+        </tr>
+    </tfoot>
+    <tbody>
+    {% for topic in afficher %}
+    
+        <tr>
+            <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
+            <td>{{topic.auteur }}</td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
 {% endblock %}
