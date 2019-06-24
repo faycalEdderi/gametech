@@ -1,0 +1,42 @@
+{% extends 'theme.html.twig' %}
+
+{% block title %} Nouveau Sujet  {% endblock %}
+
+{% block body %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Publier un article </h1>
+
+          {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
+        <div class="form-group newArticle">
+
+             {{ form_label(form.sujet, "sujet : " | capitalize) }} 
+             {{ form_widget(form.sujet)}}
+             {#{ form_errors(form.sujet) }#}
+
+              
+             {{ form_widget(form.auteur, {'value' : app.user.prenom}) }} 
+             
+
+              {{ form_label(form.message, "message : " | capitalize) }} 
+             {{ form_widget(form.message)}}
+             {#{ form_errors(form.sujet) }#}
+
+             
+
+            
+
+            <button class="btn mt-4 btn-primary">Valider</button>
+        </div>
+        {{ form_end(form) }}
+
+        </div>
+  
+
+      </div>
+      
+
+{% endblock %}
