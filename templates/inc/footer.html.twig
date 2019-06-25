@@ -1,5 +1,39 @@
-<footer class="w-100 py-5 bg-dark">
-    <div class="container">
+<footer class="w-100 py-5 bg-dark"> 
+<div class="container">
+  <div class="footer">
+    <ul>
+    <p>Plan du site</p>
+    <li>Articles Gaming</li>
+      <ol>
+        <li><a href="{{url('ps4')}}">Playstation 4 </a></li>
+        <li><a href="{{url('xbox')}}">Xbox One</a></li>
+        <li><a href="{{url('nintendo')}}">Nintendo Switch</a></li>
+        <li><a href="{{url('pc')}}">Ordinateur Gaming</a></li>
+      </ol>
+
+    <li><a href="{{url('forum')}}">Forum</a></li>
+    <ol>
+      <li><a href="{{asset('forum/playstation')}}">Forum Playstation</a></li>
+      <li><a href="{{asset('forum/xbox')}}">Forum Xbox One</a></li>
+      <li><a href="{{asset('forum/nintendo')}}">Forum Nintendo Switch</a></li>
+      <li><a href="{{asset('forum/pc')}}">Forum Ordinateur Gaming</a></li>
+    </ol>
+    <li><a href="{{url('contact')}}">Contact</a></li>
+    
+    <li><a href="{{url('app_login')}}">Connexion</a></li>
+    <li><a href="{{url('app_register')}}">Créer un compte</a></li>
+    <li><a href="{{url('cgu')}}">Conditions générales d'utilisation</a></li>
+    </ul>
+    <div class="social">
+    <p>Suivez nous sur les réseaux sociaux !</p>
+    <a href="#"><img src="{{asset('logo/twitter.png')}}" alt="facebook"></a> 
+    <a href="#"><img src="{{asset('logo/facebook.png')}}" alt="twitter"></a>
+    <a href="#"><img src="{{asset('logo/instagram.png')}}" alt="instagram"></a>
+    </div>
+  </div>
+
+
+  
       <p class="m-0 text-center text-white">Copyright Edderi Fayçal</p>
     </div>
   </footer>

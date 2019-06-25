@@ -171,6 +171,28 @@ display: block;
 }
 
 
+/*STYLE FOOTER DU SITE*/
+
+.footer li{
+	list-style-type: none;
+	color: white;
+
+}
+.footer a{
+	
+	color: white;
+
+}
+
+.footer{
+	display : flex; 
+	justify-content: space-around;
+}
+.footer p{
+	color : blanchedalmond;
+}
+
+
 
 
 

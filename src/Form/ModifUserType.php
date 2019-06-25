@@ -76,7 +76,7 @@ class ModifUserType extends AbstractType
 		            	'min' => 1,
 			            'max' => 3,
 			            'minMessage' => 'L\'âge ne peut etre inferieur à {{ limit }} nombre ',
-			            'maxMessage' => 'L\'âge ne peut pas contenir {{ limit }} nombres',
+			            'maxMessage' => 'L\'âge ne peut pas contenir plus de {{ limit }} nombres, à moins que ...',
 		            ])
 	            ]
             ])

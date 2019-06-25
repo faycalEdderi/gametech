@@ -4,13 +4,14 @@
 
 {% block body %}
     
-
+<h1 class="h3 mb-4 text-gray-800 title">Modifier mot de passe </h1>
+<p class="text-center lead">Veuillez à bien entrer deux fois le même mot de passe dans les champs ci-dessous !</p>
      {% if form.vars.value.id == app.user.id %}
      <div class="modifMdp">
                {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
           <div class="form-group newArticle">
 
-               {{ form_label(form.password, "Nouveau mot de passe : " | capitalize) }} 
+               {{ form_label(form.password, " " ) }} 
                {{ form_widget(form.password)}}
                {{ form_errors(form.password) }}
                <button class="btn mt-4 btn-primary">Valider</button>

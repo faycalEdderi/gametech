@@ -21,6 +21,9 @@ class ModifMdpType extends AbstractType
             
         ->add('password', RepeatedType::class, [
             
+            'first_options'  => ['label' => 'Nouveau mot de passe'],
+            'second_options' => ['label' => 'Ressaisissez votre nouveau mot de passe'],
+            
             'type' => PasswordType::class,
             'constraints' => [
                 new NotBlank([

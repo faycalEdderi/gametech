@@ -68,7 +68,7 @@ class ForumController extends AbstractController
      */
     public function forumNintendo(TopicRepository $topicRepository):Response
     {
-       $results = $topicRepository->findByCategory("nintendo");
+       $results = $topicRepository->findByCategory("switch");
        return $this->render('forum/forumCategorie.html.twig', [
            'afficher'=> $results
        ]);
@@ -94,7 +94,7 @@ class ForumController extends AbstractController
        ]);
     }
      /**
-     * @Route("/forum/nintendo", name="forum.ordinateur")
+     * @Route("/forum/pc", name="forum.ordinateur")
      */
     public function forumordinateur(TopicRepository $topicRepository):Response
     {
