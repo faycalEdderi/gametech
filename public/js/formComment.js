@@ -33,7 +33,7 @@ function submitFormComment(e) {
 	});
 
 	
-	location.reload();
+
 
 	//console.log(formData.entries().next());
 }
@@ -63,7 +63,7 @@ function commentAddSuccess(response){
 
 
 	
-
+	location.reload();
 	
 }
 

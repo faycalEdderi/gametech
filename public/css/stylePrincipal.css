@@ -20,9 +20,8 @@ display: block;
 
 
 }
-.categorie{
-	padding: 0;
-}
+
+
 .categorie p{
 
 	
@@ -119,6 +118,32 @@ display: block;
 	
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/*STYLE DETAIL ARTICLE*/
+
+.contenu{
+
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.commentaire{
+
+	width : 70%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.valider{
+	text-align: center;
+}
+
+/*STYLE FORUM*/
+
+.topicPrincipal{
+	background-color: rgb(236, 240, 243);
 }
 
 /*STYLE DES INFOS USER*/

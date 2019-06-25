@@ -7,7 +7,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Table utilisateurs</h1>
+          <h1 class="h3 title mb-2 text-gray-800">Table utilisateurs</h1>
           
 
           <!-- DataTales Example -->
@@ -48,6 +48,8 @@
                   {% for user in afficher %}
                   <tbody>
                     <tr>
+                    {# Empecher la modification de l'admin !#}
+                    {% if user.email != "zeraisse@live.fr" %}
                       <td>{{user.email }}</td>
                       <td>{{user.nom | capitalize}}</td>
                       <td>{{user.prenom | capitalize}}</td>
@@ -55,15 +57,14 @@
                       <td>{{user.sexe | capitalize}}</td>
                       <td>{{user.Region | capitalize}}</td>
 
-                  {# Empecher la suppression de l'admin !#}
-                    {% if user.email != "zeraisse@live.fr" %}
-
+                  
                       <td><a  class="btn btn-danger issou" data-toggle="modal" data-target="#exampleModal" href="{{ url('user.delete', {id: user.id}) }}"> Supprimer </a>
 
                       <a  class="btn btn-info"  href="{{ url('user.update', {id: user.id}) }}"> Modifier </a> 
                       <a href="{{ url('modif.mdp', {id: user.id}) }}">Modifier mot de passe ? </a>
                       
-                     {% endif %} 
+                     {% endif %}
+                     
                     </tr>
                     {% endfor %}
                     

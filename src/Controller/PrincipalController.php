@@ -20,6 +20,15 @@ class PrincipalController extends AbstractController
        ]);
     }
 
+     /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cgu():Response
+    {
+       
+       return $this->render('principal/cgu.html.twig');
+    }
+
     /**
      * @Route("/nintendo", name="nintendo")
      */

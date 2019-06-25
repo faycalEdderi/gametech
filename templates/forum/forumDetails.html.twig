@@ -5,16 +5,16 @@
 {% block body %}
 {% include 'inc/forumMenu.html.twig'%} 
             
-            <h4>Sujet : {{afficher.sujet }}</h4>
-            <div class="topicPrincipal">
-              <p>auteur : {{afficher.auteur }}</p>
+            <h2 class=" title"> {{afficher.sujet }}</h2>
+            <div class="commentaire topicPrincipal">
+              <p>De : {{afficher.auteur }}</p>
               <p>{{afficher.message }}</p>
             </div>
 <div class="row mt-3">
 		<div class="col">
 			<div class="comment-list">
 					{# affichage des publications #}
-					<h3>Réponses</h3>
+					<h3 class="title">Réponses</h3>
 				{% for affichage in afficher.publication %}
 						<hr>
 					<div class="commentaire">
@@ -36,7 +36,7 @@
 				<input type="hidden" type="text" name="userName" id="name" value="{{ app.user.prenom }}">
 					<textarea class="form-control" name="message" id="message" cols="60" rows="5"></textarea>
 				</p>
-				<p>
+				<p class=" valider">
 					{# champ caché pour stocker l'identifiant du produit #}
 					<input type="hidden" name="id" value="{{ afficher.id }}">
 					<button  type="submit" class="btn btn-info">Valider</button>
