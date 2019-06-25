@@ -39,9 +39,9 @@
               <img data-toggle="tooltip" data-placement="bottom" title="Connexion" alt="connexion" src="{{asset('https://img.icons8.com/ios-glyphs/30/000000/person-male.png')}}">
             </a>
       {% else %}
-      <a style="color : black" href="{{ url('user.profile') }}">Mon compte</a>
+      <a style="color : black" class="mr-2" href="{{ url('user.profile') }}">Mon compte</a>
       
-        <a href="{{ url('app_logout') }}"><img src="{{asset('https://img.icons8.com/ios/35/000000/exit-filled.png')}}"></a>
+        <a href="{{ url('app_logout') }}"><img alt="Déconnexion" src="{{asset('https://img.icons8.com/ios/35/000000/exit-filled.png')}}"></a>
          
     {% endif %}
  
