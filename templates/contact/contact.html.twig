@@ -8,29 +8,30 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Contact </h1>
+          <h1 class="h3 text-center mb-4 text-gray-800">Contact </h1>
+          <p class="text-center">Si vous rencontrer un problème merci de remplir le forulaire ci-dessous</p>
 
           {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
-        <div class="form-group newArticle">
+        <div class="form-group newArticle center">
 
              {{ form_label(form.email, "email : " | capitalize) }} 
              {{ form_widget(form.email)}}
-             {#{ form_errors(form.email) }#}
+             {{ form_errors(form.email) }}
 
             
            
              {{ form_label(form.objet, "sujet : " | capitalize) }} 
              {{ form_widget(form.objet)}}
              
-             {#{ form_errors(form.objet) }#}
+             {{ form_errors(form.objet) }}
              
 
               {{ form_label(form.message, "message " | capitalize) }}
              {{ form_widget(form.message)}} 
-             {#{ form_errors(form.message) }#}
+             {{ form_errors(form.message) }}
 
 
-            <button class="btn mt-4 btn-primary">Valider</button>
+            <button class="btn mt-4 btn-primary">Valider</button><img class="mail" src="{{asset('logo/mail.gif')}}" alt="Forum">
         </div>
         {{ form_end(form) }}
 
