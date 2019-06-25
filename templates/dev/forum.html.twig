@@ -1,12 +1,9 @@
-{% extends 'theme.html.twig' %}
-
-{% block title %} {{parent() }} | Forums {% endblock %}
-
+{% extends 'administrateur.html.twig' %}
 
 {% block body %}
 
 <h2 class="title">Liste des forums</h2>
-   {% include 'inc/forumMenu.html.twig'%} 
+
 <div class="articlesList">
     <a id="newTopicBtn" class="btn btn-primary" href="{{ url('newTopic')}}">Nouveau sujet </a>
     <table class="table table-bordered" id="dataTable" width="100%" >
@@ -15,7 +12,7 @@
             <tr>
                 <th>Sujet</th>
                 <th>Auteur</th>
-                
+                <th>Action</th>
 
                 
             </tr>
@@ -25,7 +22,7 @@
             <tr>
                 <th>Sujet</th>
                 <th>Auteur</th>
-                
+                <th>Action</th>
 
                 
             </tr>
@@ -36,7 +33,7 @@
             <tr>
                 <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
                 <td>{{topic.auteur }}</td>
-                
+                <td><a class="btn btn-danger issou" data-toggle="modal" data-target="#exampleModal" href="{{ url('topic.delete', {id: topic.id}) }}"> Supprimer</a></td>
 
             </tr>
         {% endfor %}
@@ -44,4 +41,9 @@
         </tbody>
     </table>
 </div>
+{% include 'inc/modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset('js/confirmDeleteModal.js') }}"></script>
+	<script src="{{ asset('js/deleteConfirmAlert.js') }}"></script>
 {% endblock %}

@@ -9,6 +9,7 @@ use App\Form\AjoutUserType;
 use App\Form\ModifUserType;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
+use App\Repository\TopicRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\ContactRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -245,8 +246,47 @@ class DevController extends AbstractController
 		return $this->redirectToRoute('msg.dev');
 	}
 
+//Affichage des Forum 
+
+ /**
+     * @Route("/admin/forum", name="forum.dev")
+     */
+    public function forum(TopicRepository $topicRepository):Response
+    {
+        $result = $topicRepository->findAll();
+
+        return $this->render('dev/forum.html.twig', [
+            'afficher' => $result,
+        ]);
+    }
+
+
+    //Suppression FORUM
+
+	/**
+	 * @Route("/admin/deleteTopic/{id}", name="topic.delete")
+	 */
+	public function topicDelete(int $id, TopicRepository $topicRepository, ObjectManager $objectManager):Response
+	{
+		// sélection de l'entité par son identifiant
+		$entity = $topicRepository->find($id);
+
+		// suppression de l'entité
+		$objectManager->remove($entity);
+		$objectManager->flush();
+
+		
+
+		// message
+		//$this->addFlash('notice', "Le produit a été supprimé");
+
+		// redirection
+		return $this->redirectToRoute('forum.dev');
+	}
+
     
-    
+  
+
 
 
 }
