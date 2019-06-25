@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +41,25 @@ class Topic
      * @ORM\Column(type="text")
      */
     private $message;
+
+    /**
+	 * un topic est relié à plusieurs publication
+	 * NE PAS OUBLIER : ajouter l'alias ORM
+	 * @ORM\OneToMany(targetEntity="PublicationForum", mappedBy="topic")
+	 */
+    private $publication;
+    
+    public function __construct()
+    {
+        
+        $this->commentaire = new ArrayCollection();
+        $this->publication = new ArrayCollection();
+    }
+
+
+
+
+
 
     public function getId(): ?int
     {
@@ -89,6 +110,37 @@ class Topic
     public function setCategoryTopic(?CategoryTopic $categoryTopic): self
     {
         $this->categoryTopic = $categoryTopic;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PublicationForum[]
+     */
+    public function getPublication(): Collection
+    {
+        return $this->publication;
+    }
+
+    public function addPublication(PublicationForum $publication): self
+    {
+        if (!$this->publication->contains($publication)) {
+            $this->publication[] = $publication;
+            $publication->setTopic($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(PublicationForum $publication): self
+    {
+        if ($this->publication->contains($publication)) {
+            $this->publication->removeElement($publication);
+            // set the owning side to null (unless already changed)
+            if ($publication->getTopic() === $this) {
+                $publication->setTopic(null);
+            }
+        }
 
         return $this;
     }
