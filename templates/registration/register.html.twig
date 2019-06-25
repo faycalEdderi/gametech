@@ -48,31 +48,37 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Créer un compte</h1>
                   </div>
-    {{ form_start(registrationForm) }}
+    {{ form_start(registrationForm,  { attr : { novalidate : 'novalidate' } }) }}
     <div class="form-group formulaire">
         <div class="groupeGauche" >
            {{ form_label(registrationForm.email, "email : " | capitalize) }}
             {{ form_widget(registrationForm.email)}}
+            {{ form_errors(registrationForm.email) }}
 
              {{ form_label(registrationForm.nom, "nom : " | capitalize) }}
-             {{ form_widget(registrationForm.nom)}} 
+             {{ form_widget(registrationForm.nom)}} {{ form_errors(registrationForm.nom) }}
 
              {{ form_label(registrationForm.prenom, "prenom : " | capitalize) }} 
              {{ form_widget(registrationForm.prenom)}} 
+             {{ form_errors(registrationForm.prenom) }}
              
         </div>
         <div class="groupeDroite">
              {{ form_label(registrationForm.region, "region : " | capitalize) }} 
              {{ form_widget(registrationForm.region)}} 
+             {{ form_errors(registrationForm.region) }}
 
              {{ form_label(registrationForm.age, "age : " | capitalize) }} 
             {{ form_widget(registrationForm.age)}}
+            {{ form_errors(registrationForm.age) }}
 
              {{ form_label(registrationForm.sexe, "sexe : " | capitalize) }} 
              {{ form_widget(registrationForm.sexe)}} 
+             {{ form_errors(registrationForm.sexe) }}
 
              {{ form_label(registrationForm.plainPassword, "mot de passe : " | capitalize) }} 
              {{ form_widget(registrationForm.plainPassword)}} 
+             {{ form_errors(registrationForm.plainPassword) }}
         </div>
 
     

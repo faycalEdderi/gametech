@@ -79,6 +79,20 @@
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForum" aria-expanded="true" aria-controls="collapseForum">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Forum</span>
+        </a>
+        <div id="collapseForum" class="collapse" aria-labelledby="headingForum" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gestion des sujet</h6>
+            <a class="collapse-item" href="{{ asset('/admin/forum') }}">Afficher les sujets</a>
+            
+            
+        </div>
+      </li>
+
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -193,7 +207,7 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link text-info "  role="button" >
+              <a href="{{url('user.profile')}}" class="nav-link text-info "  role="button" >
                 {{app.user.prenom}} {{ app.user.nom }}
                 
               </a>

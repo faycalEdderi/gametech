@@ -41,9 +41,7 @@ display: block;
 	color: black;
 	font-size: 20px;
 	padding: 5px;
-	
-	
-	
+		
 }
 .button:hover{
 	color:inherit;
@@ -116,6 +114,36 @@ display: block;
 	margin-right: auto;
 }
 
+/*STYLE DES INFOS USER*/
+.infoUser{
+	list-style-type: none;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	
+	
+	
+}
+
+.center{
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*STYLE MODIF MDP*/
+.modifMdp{
+	display : flex;
+	justify-content: center;
+
+}
+
+
+
+
+
+
+/*AFFICHAGE SUR PETIT ECRAN*/
 @media only screen and (max-width: 600px) {
 
 	.sousMenu{
@@ -135,6 +163,13 @@ display: block;
 		width: 100%;
 		
 		
+	}
+
+	.button{
+		
+		width : 100%;
+		
+			
 	}
 	
   }

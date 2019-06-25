@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -18,8 +19,13 @@ class ModifMdpType extends AbstractType
     {
         $builder
             
-        ->add('password', RepeatedType::class, array(
+        ->add('password', RepeatedType::class, [
+            
             'type' => PasswordType::class,
+            'constraints' => [
+                new NotBlank([
+                    'message' => 'Veuillez entrer un mot de passe',
+                ])],
             'invalid_message' => 'Les deux mots de passe doivent être identiques',
             'options' => array(
                 'attr' => array(
@@ -27,7 +33,9 @@ class ModifMdpType extends AbstractType
                 )
             ),
             'required' => true,
-        ))
+            
+            
+        ])
         
             
         ;

@@ -1,10 +1,41 @@
 {% extends 'administrateur.html.twig' %}
-
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/stylePrincipal.css') }}"> {% endblock %}
 {% block body %}
 
-<h2>Bienvenue {{app.user.prenom}}</h2>
+<h2 class="title"> Bienvenue {{app.user.prenom}}</h2>
+     <p class="text-center">Vous etes connecté en tant qu'administrateur. C'est ici que vous pouvez effectuer des modifications sur vos articles, vos utilisateurs ou le forum et afficher vos messages.</p>
 
-      
+<div class="row d-flex justify-content-center">
+    <div class="categorie col-sm-12  col-md-6 col-lg-4 col-xl-4 mb-4">
+    <img class="logo" src="{{asset('logo/user.png')}}" alt="Utilisateurs">
+      <h3>Utilisateurs </h3>
+      <p class="text-center">Modifier vos utilisateurs</p>
+      <a class="button" href="#">Utilisateurs </a>
+    </div>
+
+    <div class="categorie col-sm-12  col-md-6 col-lg-4 col-xl-4 mb-4">
+    <img class="logo" src="{{asset('logo/forum.png')}}" alt="Forum">
+      <h3>Forum </h3>
+      <p class="text-center">Modifier les sujets</p>
+      <a class="button" href="#">Forums </a>
+    </div>
+
+    <div class="categorie col-sm-12  col-md-6 col-lg-4 col-xl-4 mb-4">
+    <img class="logo" src="{{asset('logo/article.png')}}" alt="Forum">
+      <h3>Articles </h3>
+      <p class="text-center" >Modifier/Ajouter vos articles</p>
+      <a class="button" href="#">Articles </a>
+    </div>
+
+       <div class="categorie col-sm-12  col-md-6 col-lg-4 col-xl-4 mb-4">
+    <img class="logo" src="{{asset('logo/message.png')}}" alt="messages">
+      <h3>Messages</h3>
+      <p class="text-center" >Afficher vos messages</p>
+      <a class="button" href="#">Boite de reception </a>
+    </div>
+
+</div>
+
  
      {% endblock %}
 

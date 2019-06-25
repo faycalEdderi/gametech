@@ -6,15 +6,17 @@
     
 
      {% if form.vars.value.id == app.user.id %}
+     <div class="modifMdp">
                {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
           <div class="form-group newArticle">
 
-               {{ form_label(form.password, "new mdp : " | capitalize) }} 
+               {{ form_label(form.password, "Nouveau mot de passe : " | capitalize) }} 
                {{ form_widget(form.password)}}
-               {#{ form_errors(form.email) }#}
+               {{ form_errors(form.password) }}
                <button class="btn mt-4 btn-primary">Valider</button>
           </div>
           {{ form_end(form) }}
+     </div>
      {% endif %}
 
 
