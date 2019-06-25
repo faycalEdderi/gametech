@@ -3,7 +3,7 @@
 {% block title %} {{parent() }} | {{afficher.sujet }} {% endblock %}
 
 {% block body %}
-
+{% include 'inc/forumMenu.html.twig'%} 
             
             <h4>Sujet : {{afficher.sujet }}</h4>
             <div class="topicPrincipal">

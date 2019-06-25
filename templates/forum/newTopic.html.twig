@@ -4,12 +4,16 @@
 
 {% block body %}
 
+
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Publier un article </h1>
+          <h1 class="h3 mb-4 text-gray-800 title">Publier un sujet </h1>
 
+          
+<div class="articlesList">
           {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
         <div class="form-group newArticle">
 
@@ -42,5 +46,5 @@
 
       </div>
       
-
+</div>
 {% endblock %}

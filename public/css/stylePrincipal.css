@@ -4,10 +4,23 @@ display: block;
   margin-right: auto;
   width: 70%;
 }
-.categorie{
 
-	width: 25%;
-	border: solid gray 1px;
+.intro{
+
+	text-align: justify;
+	margin-left: auto;
+	margin-right: auto;
+
+
+}
+.categorie{
+	padding: 0;
+}
+.categorie p{
+
+	
+	text-align: justify;
+	padding: 10px;
 
 }
 .categorie h3{
@@ -19,15 +32,23 @@ display: block;
 
 .button{
 	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
-	background-color: #078DF0   ;
+	width: 30%;
+	border : solid black 1px; 
+	background-color: #078DF0;
 	color: black;
-	font-size: 20px
+	font-size: 20px;
+	padding: 5px;
+	
+	
 	
 }
 .button:hover{
 	color:inherit;
 	text-decoration: none;
+	border : solid #078DF0 1px; 
 	
 }
 
@@ -57,6 +78,7 @@ display: block;
 
 	text-align: center;
 	
+	
   }
   #newTopicBtn{
 	text-decoration: none;
@@ -70,3 +92,49 @@ display: block;
 	
 }
 
+/*SOUS MENU FORUM*/
+
+.sousMenu li{
+
+	list-style-type: none;
+	margin: 10px;
+	
+}
+
+.sousMenu{
+	display : flex;
+	flex-direction: row;
+	justify-content: center;
+	
+}
+
+.articlesList{
+
+	width: 50%;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (max-width: 600px) {
+
+	.sousMenu{
+		
+		flex-direction: column;
+		align-content: center;
+		
+	}
+	.sousMenu a{
+		display: block;
+		width: 100%;
+		
+	}
+
+	.articlesList{
+
+		width: 100%;
+		
+		
+	}
+	
+  }

@@ -6,44 +6,39 @@
 {% block body %}
 
 <h2 class="title">Liste des forums</h2>
-    <ul>
-        <li><a id="newTopicBtn" class="btn btn-primary" href="{{ url('forum.nintendo')}}">Nintendo </a></li>
-        <li><a id="newTopicBtn" class="btn btn-primary" href="{{ url('forum.xbox')}}">Microsoft Xbox</a></li>
-        <li><a id="newTopicBtn" class="btn btn-primary" href="{{ url('forum.playstation')}}">Sony Playstation </a></li>
-        <li><a id="newTopicBtn" class="btn btn-primary" href="{{ url('forum.ordinateur')}}">Ordinateur Gaming </a></li>
-        <li><a id="newTopicBtn" class="btn btn-primary" href="{{ url('forum.divers')}}">Sujet divers </a></li>
-    </ul>
+   {% include 'inc/forumMenu.html.twig'%} 
+<div class="articlesList">
+    <a id="newTopicBtn" class="btn btn-primary" href="{{ url('newTopic')}}">Nouveau sujet </a>
+    <table class="table table-bordered" id="dataTable" width="100%" >
+                    
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Auteur</th>
 
-<a id="newTopicBtn" class="btn btn-primary" href="{{ url('newTopic')}}">Nouveau sujet </a>
-<table class="table table-bordered" id="dataTable" width="100%" >
                 
-    <thead>
-        <tr>
-            <th>Sujet</th>
-            <th>Auteur</th>
+            </tr>
+        </thead>
 
-            
-        </tr>
-    </thead>
+        <tfoot>
+            <tr>
+                <th>Sujet</th>
+                <th>Auteur</th>>
 
-    <tfoot>
-        <tr>
-            <th>Sujet</th>
-            <th>Auteur</th>>
+                
+            </tr>
+        </tfoot>
+        <tbody>
+        {% for topic in afficher %}
+        
+            <tr>
+                <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
+                <td>{{topic.auteur }}</td>
 
-            
-        </tr>
-    </tfoot>
-    <tbody>
-    {% for topic in afficher %}
-    
-        <tr>
-            <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
-            <td>{{topic.auteur }}</td>
+            </tr>
+        {% endfor %}
 
-        </tr>
-    {% endfor %}
-
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 {% endblock %}
