@@ -3,6 +3,7 @@
 {% block body %}
 <h2 class="title">Mon Compte</h2>
 <p class="text-center lead">Ici vous pouvez modifier votre profile</p>
+{% include 'inc/flash.messages.html.twig' %}
 <ul class="infoUser">
     <div class="center">
     <li>Email : {{ app.user.email }}</li>

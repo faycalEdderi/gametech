@@ -3,6 +3,8 @@
 {% block title %} {{ parent() }} | Articles {% endblock %}
 
 {% block body %}
+<h1 class="h3 title mb-2 text-gray-800">Tous les articles</h1>
+{% include 'inc/flash.messages.html.twig' %}
 <div class="btnToggle">
 <p>Cliquer sur un bouton pour faire apparaitre ou disparaitre les articles</p>
   <a id="togglePs4" href="#" class="btn btn-primary">Ps4</a>

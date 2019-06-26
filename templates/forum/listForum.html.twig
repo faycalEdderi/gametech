@@ -6,6 +6,7 @@
 {% block body %}
 
 <h2 class="title">Liste des forums</h2>
+{% include 'inc/flash.messages.html.twig' %}
    {% include 'inc/forumMenu.html.twig'%} 
 <div class="articlesList">
     <a id="newTopicBtn" class="btn btn-primary" href="{{ url('newTopic')}}">Nouveau sujet </a>
@@ -33,7 +34,7 @@
         <tbody>
         {% for topic in afficher %}
         
-            <tr>
+            <tr class="forums">
                 <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
                 <td>{{topic.auteur }}</td>
                 
@@ -45,3 +46,5 @@
     </table>
 </div>
 {% endblock %}
+
+{% block javascripts %}<script src="{{ asset('js/affichageForum.js') }}"></script>{% endblock %}

@@ -40,7 +40,9 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
- 
+            // message
+            $this->addFlash('notice', "Les informations ont été modifiés");
+            
             return $this->redirectToRoute('user.profile');
          }
 
@@ -76,7 +78,9 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
- 
+            // message
+            $this->addFlash('notice', "Le mot de passe a été modifié");
+            
             return $this->redirectToRoute('user.profile');
          }
 

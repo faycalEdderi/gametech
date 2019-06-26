@@ -20,3 +20,8 @@ $('#toggleSwitch').click(function(){
 
 	$('.nintendo').toggle(1000);
 });
+
+$('.menuBurger').click(function(){
+
+	$('.menuResponsive').toggle(1000);
+});

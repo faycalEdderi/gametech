@@ -51,9 +51,12 @@ class ForumController extends AbstractController
          
            
             $objectManager->persist($entity);
-			$objectManager->flush();
- 
-            //$this->addFlash('notice', 'Le topic a bien été créé');
+            $objectManager->flush();
+            
+            // message
+            $this->addFlash('notice', 'Le topic a bien été créé');
+            
+		
  
             return $this->redirectToRoute('forum');
          }

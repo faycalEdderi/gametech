@@ -9,6 +9,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 text-center mb-4 text-gray-800">Contact </h1>
+          {% include 'inc/flash.messages.html.twig' %}
           <p class="text-center">Si vous rencontrer un problème merci de remplir le forulaire ci-dessous</p>
 
           {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}

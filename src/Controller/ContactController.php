@@ -26,7 +26,7 @@ class ContactController extends AbstractController
            $manager->persist($msg);
            $manager->flush();
 
-           $this->addFlash('notice', 'Le produit a été ajouté');
+           $this->addFlash('notice', 'Votre message a été envoyé');
 
            return $this->redirectToRoute('contact');
         }

@@ -32,7 +32,7 @@
         <tbody>
         {% for topic in afficher %}
         
-            <tr>
+            <tr class="forumCategorie">
                 <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
                 <td>{{topic.auteur }}</td>
 
@@ -43,3 +43,5 @@
     </table>
 </div>
 {% endblock %}
+
+{% block javascripts %}<script src="{{ asset('js/affichageForum.js') }}"></script>{% endblock %}

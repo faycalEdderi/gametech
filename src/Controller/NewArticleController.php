@@ -79,7 +79,7 @@ class NewArticleController extends AbstractController
             $objectManager->persist($entity);
 			$objectManager->flush();
  
-            //$this->addFlash('notice', 'L\'article été ajouté');
+            $this->addFlash('notice', 'L\'article été ajouté');
  
             return $this->redirectToRoute('articles.dev');
          }

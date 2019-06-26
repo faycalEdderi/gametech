@@ -59,7 +59,7 @@ class DevController extends AbstractController
 		unlink("img/{$entity->getImage()}");
 
 		// message
-		$this->addFlash('notice', "Le produit a été supprimé");
+		$this->addFlash('notice', "L'artice a été supprimé");
 
 		// redirection
 		return $this->redirectToRoute('articles.dev');
@@ -93,7 +93,7 @@ class DevController extends AbstractController
 		
 
 		// message
-		$this->addFlash('notice', "l'utilisateur a été supprimé");
+		$this->addFlash('notice', "L'utilisateur a été supprimé");
 
 		// redirection
 		return $this->redirectToRoute('user.dev');
@@ -125,7 +125,8 @@ class DevController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
- 
+            // message
+		    $this->addFlash('notice', "L'utilisateur a été ajouté");
             return $this->redirectToRoute('user.dev');
          }
 

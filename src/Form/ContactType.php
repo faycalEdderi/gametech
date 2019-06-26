@@ -32,7 +32,7 @@ class ContactType extends AbstractType
 		            ]),
 		            new Length([
                         'min' => 10,
-                        'max' => 10,
+                        'max' => 100,
                         'maxMessage' => 'Votre sujet doit comporter au maximum{{ limit }} caractères',
 			            'minMessage' => 'Votre sujet comporter au minimum {{ limit }} caractères',
 		            ])
