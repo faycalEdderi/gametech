@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}GameTech  {% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/stylePrincipal.css') }}">
-    </head>
-    <body>
+
 {% include 'inc/interfaceAdmin1.html.twig'%}
 
         {% block body %}{% endblock %}
@@ -22,6 +12,7 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+        <script src="{{ asset('js/sb-admin-2.js') }}"></script>
         <script src="{{ asset('js/deleteConfirmAlert.js') }}"></script>
         
         

@@ -6,8 +6,15 @@
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/stylePrincipal.css') }}">
+
+         
+
+  <!-- Custom styles for this template-->
+  <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+       
     </head>
-    <body>
+    
      
 
         {% block body %}{% endblock %}
@@ -22,6 +29,7 @@
         
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+        
         
        
         {% block javascripts %}{% endblock %}
