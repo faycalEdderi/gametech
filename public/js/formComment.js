@@ -26,7 +26,7 @@ function submitFormComment(e) {
 		method: 'post',
 		dataType: 'json',
 		data: formData,
-		url: '/commentaire/add',
+		url: '/user/commentaire/add',
 		success: commentAddSuccess,
 		processData: false,
 		contentType: false

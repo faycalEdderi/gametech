@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CommentaireController extends AbstractController
 {
     /**
-     * @Route("/commentaire/add", name="commentaire.add")
+     * @Route("/user/commentaire/add", name="commentaire.add")
      */
     public function add(Request $request, ArticleRepository $articleRepository, ObjectManager $objectManager):JsonResponse
     {
