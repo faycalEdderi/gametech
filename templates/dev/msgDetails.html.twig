@@ -1,18 +1,42 @@
 {% extends 'administrateur.html.twig' %}
 
-{% block title %} {{parent() }} | Mes messages {% endblock %}
+
 
 {% block body %}
-<ul>
-  <li>De : {{  afficher.email }}</li>
-  <li>Sujet : {{  afficher.objet | capitalize}}</li>
-  <li>Message : {{  afficher.message | capitalize}}</li>
-  <li><a href="mailto:{{ afficher.email }}?subject=[ADMIN GAMETECH] Reponse à votre message&amp;">Envoyer un email</a></li>
-</ul>
 
+<h2 class="title">Message </h2>
+<div class="d-flex  flex-column align-items-center text-center " >
+<table class="table w-25 table-bordered" id="dataTable"  >
+                    
+        <thead>
+            <tr>
+              <th>De : {{  afficher.email }} </th> 
+            </tr>
+            <tr>
+              <th>Objet : {{  afficher.objet | capitalize}} </th>
+            </tr>
+        </thead>
 
+       
+        <tbody>
+        
+        
+            <tr>
+                <td>{{  afficher.message | capitalize}}</td>
+
+                
+
+            </tr>
+        <td><a class="btn btn-success" href="mailto:{{ afficher.email }}?subject=[ADMIN GAMETECH] Reponse à votre message&amp;">Envoyer un email</a>
+                </td>
+
+        </tbody>
+    </table>
+
+</div>
 
 
 
 
 {% endblock %}
+

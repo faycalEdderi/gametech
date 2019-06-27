@@ -4,6 +4,9 @@
 <div id="menuBurger" ><img src="{{ asset('logo/menuBurger.png') }}" alt="afficher menu"></div>
   <div  class="collapse navbar-collapse   d-flex justify-content-end" id="navbarSupportedContent">
     <ul  class="navbar-nav m-auto menuResponsive">
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ url('accueil') }}"><img class="img-fluid mx-auto d-block w-50" src="{{ asset('logo/home.png') }}" alt="accueil"><span class="sr-only">(current)</span></a>
+      </li>
      <li class="nav-item active">
         <a class="nav-link" href="{{ url('nintendo') }}">Nintendo Switch <span class="sr-only">(current)</span></a>
       </li>
