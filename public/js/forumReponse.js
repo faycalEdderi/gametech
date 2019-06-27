@@ -24,19 +24,19 @@ function submitFormComment(e) {
 	});
 
 	
-	//location.reload();
+	
 
-function commentAddSuccess(response){
+	function commentAddSuccess(response){
 
 	$('.comment-list').empty();
 
-	
+
 	formComment[0].reset();
 
-	
+
 	response.forEach( affichage => {
 		
-	
+
 		$('.comment-list').append(`
 			<hr>
 			<p>${affichage.userName}</p>
@@ -44,10 +44,12 @@ function commentAddSuccess(response){
 			
 		`);
 	} );
+//Recharge la page pour affichage des commentaires
+location.reload();
 
 
-	
 
-	
-}
+	}
+
+
 }

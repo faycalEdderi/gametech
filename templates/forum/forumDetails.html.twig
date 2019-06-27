@@ -20,31 +20,27 @@
 					<div class="commentaire">
 						<p>De : {{ affichage.userName }}</p>
 						<p>Réponse: {{ affichage.reponse }}</p>
-					<div>
+					</div>
 						
 				{% endfor %}
 				</div>
-			<h4>Ajouter un commentaire</h4>
+			
 			{% if app.user %}
 			<form method="post"  class="form-comment">
-
-			
-			
-
 				<p>
 				{#Recuperation du prenom de l'utilisateur#}
 				<input type="hidden" type="text" name="userName" id="name" value="{{ app.user.prenom }}">
 					<textarea class="form-control" name="message" id="message" cols="60" rows="5"></textarea>
 				</p>
 				<p class=" valider">
-					{# champ caché pour stocker l'identifiant du produit #}
+					{# champ caché pour stocker l'identifiant du topic #}
 					<input type="hidden" name="id" value="{{ afficher.id }}">
 					<button  type="submit" class="btn btn-info">Valider</button>
 				</p>
 			</form>
 			{% else %}
 
-			<p> Veuillez vous <a href="{{url('app_login')}}">connecter</a> ou vous <a href="{{url('app_register')}}"> créer un compte </a> pour publier. </p>
+			<p class="text-center lead"> Veuillez vous <a target="_blank" href="{{url('app_login')}}">connecter</a> ou vous <a target="_blank" href="{{url('app_register')}}"> créer un compte </a> pour publier. </p>
 			{% endif %}
 			
 		</div>

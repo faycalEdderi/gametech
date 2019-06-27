@@ -63,7 +63,7 @@ function commentAddSuccess(response){
 
 
 	
-	location.reload();
+	location.reload(true);
 	
 }
 

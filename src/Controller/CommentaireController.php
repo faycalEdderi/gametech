@@ -21,33 +21,36 @@ class CommentaireController extends AbstractController
 		
 		
 		$message = $request->request->get('message');
-		$id = $request->request->get('id');
-		//dd($message, $id);
+		//empeche la publication de commentaire vide
+			if( !empty($message) ){
+			$id = $request->request->get('id');
+			//dd($message, $id);
 
-	    
-	    $commentaire = new Commentaire();
-		$commentaire->setMessage($message);
-		$commentaire->setUserName($userName);
-	    
+			
+			$commentaire = new Commentaire();
+			$commentaire->setMessage($message);
+			$commentaire->setUserName($userName);
+			
 
-	    
-        $article = $articleRepository->find($id);
-        //dd($product);
+			
+			$article = $articleRepository->find($id);
+			//dd($product);
 
-	    // associer une entité à une autre entité : utiliser une entité dans une méthode de l'autre entité
-	    $commentaire->setArticle($article);
+			// associer une entité à une autre entité : utiliser une entité dans une méthode de l'autre entité
+			$commentaire->setArticle($article);
 
-	    // enregistrement dans la table
-	    $objectManager->persist($commentaire);
-        $objectManager->flush();
-        //dd($comment);
+			// enregistrement dans la table
+			$objectManager->persist($commentaire);
+			$objectManager->flush();
+			//dd($comment);
 
-	   
-	    $article = $articleRepository->find($id);
-	    $response = new JsonResponse( $article->getCommentaire()->toArray() );
+		
+			$article = $articleRepository->find($id);
+			$response = new JsonResponse( $article->getCommentaire()->toArray() );
 
-	    //dd($product->getCommentaire()->toArray());
+			//dd($product->getCommentaire()->toArray());
 
-		return $response;
+			return $response;
+		}
     }
 }

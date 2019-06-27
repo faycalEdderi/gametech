@@ -21,33 +21,38 @@ class PublicationForumController extends AbstractController
 		
 		
 		$message = $request->request->get('message');
+//empeche la publication de reponse vite
+		if( !empty($message) ){
+		
 		$id = $request->request->get('id');
 		//dd($message, $id);
 
-	    
-	    $publication = new PublicationForum();
+
+		$publication = new PublicationForum();
 		$publication->setReponse($message);
 		$publication->setUserName($userName);
-	    
 
-	    
-        $topic = $topicRepository->find($id);
-        //dd($product);
 
-	    // associer une entité à une autre entité : utiliser une entité dans une méthode de l'autre entité
-	    $publication->setTopic($topic);
 
-	    // enregistrement dans la table
-	    $objectManager->persist($publication);
-        $objectManager->flush();
-        //dd($comment);
+		$topic = $topicRepository->find($id);
+		//dd($product);
 
-	   
-	    $topic = $topicRepository->find($id);
-	    $response = new JsonResponse( $topic->getPublication()->toArray() );
+		// associer une entité à une autre entité : utiliser une entité dans une méthode de l'autre entité
+		$publication->setTopic($topic);
 
-	    //dd($product->getCommentaire()->toArray());
+		// enregistrement dans la table
+		$objectManager->persist($publication);
+		$objectManager->flush();
+		//dd($comment);
+
+
+		$topic = $topicRepository->find($id);
+		$response = new JsonResponse( $topic->getPublication()->toArray() );
+
+		//dd($product->getCommentaire()->toArray());
 
 		return $response;
-    }
+		}
+	}
+		
 }
