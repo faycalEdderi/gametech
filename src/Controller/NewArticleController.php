@@ -56,25 +56,6 @@ class NewArticleController extends AbstractController
 				$entity->setImage("$imageName.$extension");
             }
             
-            
-			// si l'entité est mise à jour et qu'une image n'a pas été sélectionnée
-			elseif($entity->getId() && !$entity->getImage()){
-				// récupération de la propriété dynamique prevImage pour remplir la propriété image
-				$entity->setImage( $entity->prevImage );
-				//dd($entity);
-			}
-			// si l'entité est mise à jour et qu'une image a été sélectionnée
-			elseif($entity->getId() && $entity->getImage()){
-				// unlink : suppression de l'ancienne image
-				unlink("img/{$entity->prevImage}");
-
-				// transfert de la nouvelle image
-				$imageName = bin2hex(random_bytes(16));
-				$uploadedFile = $entity->getImage();
-				$extension = $uploadedFile->guessExtension();
-				$uploadedFile->move('img/', "$imageName.$extension");
-				$entity->setImage("$imageName.$extension");
-			}
        
             $objectManager->persist($entity);
 			$objectManager->flush();

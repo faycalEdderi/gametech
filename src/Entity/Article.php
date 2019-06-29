@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Article
 {
-       /**
+    /**
      * Many features have one product. This is the owning side.
      * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="article")
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categorie
 {
-      /**
+    /**
      * One product has many features. This is the inverse side.
      * @ORM\OneToMany(targetEntity="Article", mappedBy="categorie")
      */
