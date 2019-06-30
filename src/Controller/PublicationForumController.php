@@ -17,7 +17,10 @@ class PublicationForumController extends AbstractController
      */
     public function reponseForum(Request $request, TopicRepository $topicRepository, ObjectManager $objectManager):JsonResponse
     {
-		$userName = $request->request->get('userName');
+		
+
+		//recupère le prenom de l'utilisateur
+		$userName = $this->getUser()->getPrenom();
 		
 		
 		$message = $request->request->get('message');

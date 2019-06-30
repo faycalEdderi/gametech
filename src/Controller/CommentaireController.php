@@ -17,12 +17,13 @@ class CommentaireController extends AbstractController
      */
     public function add(Request $request, ArticleRepository $articleRepository, ObjectManager $objectManager):JsonResponse
     {
-		$userName = $request->request->get('userName');
+		//recupère le prenom de l'utilisateur
+		$userName = $this->getUser()->getPrenom();
 		
 		
 		$message = $request->request->get('message');
 		//empeche la publication de commentaire vide
-			if( !empty($message) ){
+		if( !empty($message) ){
 			$id = $request->request->get('id');
 			//dd($message, $id);
 
