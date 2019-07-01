@@ -14,7 +14,7 @@ class PublicationForumController extends AbstractController
 {
     /**
      * @Route("/publication/forum", name="publication_forum")
-     */
+    */
     public function reponseForum(Request $request, TopicRepository $topicRepository, ObjectManager $objectManager):JsonResponse
     {
 		

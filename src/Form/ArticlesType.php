@@ -82,6 +82,7 @@ class ArticlesType extends AbstractType
 		            ])
 	            ]
 			])
+
 			->add('categorie', EntityType::class, [
 				
 	        	'class' => Categorie::class,
@@ -90,9 +91,7 @@ class ArticlesType extends AbstractType
 				'constraints' => [
 		            new NotBlank([
 			            'message' => "Veuillez saisir une categorie"
-		            ])]
-					        
-		      
+		            ])] 
 	        ])
         ;
     }

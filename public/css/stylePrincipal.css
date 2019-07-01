@@ -1,3 +1,33 @@
+
+.formulaire{
+	display: flex;
+	justify-content: center;
+	align-content: flex-start;
+		
+}
+
+.groupeGauche{
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+	
+
+}
+
+.groupeDroite{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.newArticle{
+
+	display: flex;
+	flex-direction: column;
+	width: 70%
+
+}
+
 .logo{
 display: block;
   margin-left: auto;
@@ -49,12 +79,7 @@ display: block;
 	padding: 5px;
 		
 }
-.button:hover{
-	color:inherit;
-	text-decoration: none;
-	border : solid #078DF0 1px; 
-	
-}
+
 
 
 
@@ -65,7 +90,9 @@ display: block;
   }
   
   
- .button:hover {
+ .button:hover {	
+	text-decoration: none;
+	border : solid #078DF0 1px; 
 	font-size: 25px;
 	color: white; 
 	background-color: black;

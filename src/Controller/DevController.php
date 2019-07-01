@@ -30,9 +30,9 @@ class DevController extends AbstractController
 
         return $this->render('dev/accueil.html.twig');
     }
-    /**
-     * @Route("/admin/articles", name="articles.dev")
-     */
+/**
+ * @Route("/admin/articles", name="articles.dev")
+ */
     public function index(ArticleRepository $articleRepository):Response
     {
         $result = $articleRepository->findAll();

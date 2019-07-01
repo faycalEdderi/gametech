@@ -9,33 +9,33 @@
           <h1 class="h3 mb-4 text-gray-800">Publier un article </h1>
 
           {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
-        <div class="form-group newArticle">
+            <div class="form-group newArticle">
 
-             {{ form_label(form.titre, "titre : " | capitalize) }} 
-             {{ form_widget(form.titre)}}
-             {{ form_errors(form.titre) }}
+              {{ form_label(form.titre, "titre : " | capitalize) }} 
+              {{ form_widget(form.titre)}}
+              {{ form_errors(form.titre) }}
 
-              {{ form_label(form.accroche, "Phrase d'accroche : " | capitalize) }}
-             {{ form_widget(form.accroche)}} 
-             {{ form_errors(form.accroche) }}
+                {{ form_label(form.accroche, "Phrase d'accroche : " | capitalize) }}
+              {{ form_widget(form.accroche)}} 
+              {{ form_errors(form.accroche) }}
 
-             {{ form_label(form.texte, "texte : " | capitalize) }} 
-            {{ form_widget(form.texte)}}
-            {{ form_errors(form.texte) }}
+              {{ form_label(form.texte, "texte : " | capitalize) }} 
+              {{ form_widget(form.texte)}}
+              {{ form_errors(form.texte) }}
 
-             {{ form_label(form.image, "image : " | capitalize) }} 
-             {{ form_widget(form.image)}} 
-             {{ form_errors(form.image) }}
+              {{ form_label(form.image, "image : " | capitalize) }} 
+              {{ form_widget(form.image)}} 
+              {{ form_errors(form.image) }}
 
-             {{ form_label(form.categorie, "categorie : " | capitalize) }} 
-             {{ form_widget(form.categorie)}}
-             {{ form_errors(form.categorie) }} 
+              {{ form_label(form.categorie, "categorie : " | capitalize) }} 
+              {{ form_widget(form.categorie)}}
+              {{ form_errors(form.categorie) }} 
 
             
 
-            <button class="btn mt-4 btn-primary">Valider</button>
-        </div>
-        {{ form_end(form) }}
+              <button class="btn mt-4 btn-primary">Valider</button>
+            </div>
+          {{ form_end(form) }}
 
         </div>
         <!-- /.container-fluid -->
