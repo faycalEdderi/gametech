@@ -1,9 +1,11 @@
 <nav class=" navbar navbar-expand-lg navbar-light bg-primary">
   <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Accueil" href="{{ url('accueil') }}">GameTech</a>
+
+ <button id="menuBurger" class="navbar-toggler hidden-sm-up" type="button"  > &#9776; </button>
  
-<div id="menuBurger" ><img src="{{ asset('logo/menuBurger.png') }}" alt="afficher menu"></div>
-  <div  class="collapse navbar-collapse   d-flex justify-content-end" id="navbarSupportedContent">
-    <ul  class="navbar-nav m-auto menuResponsive">
+
+  <div  class="collapse navbar-collapse d-flex justify-content-end " >
+    <ul id="menuResp"  class="navbar-nav m-auto menuResponsive  ">
     <li class="nav-item active">
         <a class="nav-link" href="{{ url('accueil') }}"><img class="img-fluid mx-auto d-block w-50" src="{{ asset('logo/home.png') }}" alt="accueil"><span class="sr-only">(current)</span></a>
       </li>
@@ -26,10 +28,7 @@
         <a class="nav-link" href="{{ url('contact') }}">Contact <span class="sr-only">(current)</span></a>
       </li>
      
-      
-    
-      
-      
+
     </ul>
     {% if app.user == false %}
       <div class=" user my-2 my-lg-0">
