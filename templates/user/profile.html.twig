@@ -14,8 +14,8 @@
     <li>Region : {{ app.user.region }}</li>
     </div>
     
-    <a href="{{ url('profile.update', {id : app.user.id}) }}" class="btn">Modifier mes informations</a>
-    <a href="{{ url('user.changeMdp', {id : app.user.id}) }}" class="btn">Modifier mot de passe</a>
+    <a  href="{{ url('profile.update', {id : app.user.id}) }}" class="btn w-25 d-block mr-auto ml-auto">Modifier mes informations</a>
+    <a href="{{ url('user.changeMdp', {id : app.user.id}) }}" class="btn w-25 d-block mr-auto ml-auto">Modifier mot de passe</a>
 
     <a class="issou btn btn-danger w-25 d-block mr-auto ml-auto" data-toggle="modal" data-target="#exampleModal" href="{{ url('user.supprimer', {id: app.user.id}) }}" class="btn">Supprimer mon compte</a>
 

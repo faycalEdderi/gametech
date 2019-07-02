@@ -99,8 +99,13 @@ class UserController extends AbstractController
         $form = $this->createForm(ModifMdpType::class, $user);
         $form->handleRequest($request);
 
+       
+
         if ($form->isSubmitted() && $form->isValid()) {
 
+         
+
+                
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
@@ -110,6 +115,7 @@ class UserController extends AbstractController
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
+            
             $entityManager->flush();
 
             // message
