@@ -223,23 +223,6 @@ display: block;
 
 /*Menu burger*/
 
-#menuBurger{
-	display: none;
-}
-
-
-
-
-
-@media only screen and (max-width: 1000px) {
-
-	#menuBurger{
-		display: block;
-	}
-
-
-	
-}
 
 /*AFFICHAGE SUR PETIT ECRAN*/
 @media only screen and (max-width: 600px) {

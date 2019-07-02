@@ -15,16 +15,24 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{{asset('logo/ps4.png')}}" alt="PS4">
+      <a  href="{{url('ps4')}}">
+        <img class="d-block w-100" src="{{asset('logo/ps4.png')}}" alt="PS4">
+      </a>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{asset('logo/xbox.png')}}" alt="XBOX ONE">
+      <a href="{{url('xbox')}}">
+        <img class="d-block w-100" src="{{asset('logo/xbox.png')}}" alt="XBOX ONE">
+      </a>
     </div>
     <div class="carousel-item">
+     <a href="{{url('nintendo')}}">
       <img class="d-block w-100" src="{{asset('logo/switch.png')}}" alt="NINTENDO SWICTH">
+      </a>
     </div>
     <div class="carousel-item">
+     <a href="{{url('pc')}}">
       <img class="d-block w-100" src="{{asset('logo/pc.png')}}" alt="pc">
+      </a>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -72,13 +80,10 @@
   <div class="row parent d-flex justify-content-center">
   
     {% for article in afficher %}
-
-    
-
           <div  class="col-sm-6 articleCard  col-md-4 col-lg-3 col-xl-2 mb-4 ">
           <a href=" {{ url('article.details', { id : article.id}) }}">
             <div class="card h-100">
-              <img class="card-img-top" src="{{ asset('img/' ~ article.image) }}" alt="">
+              <img class="card-img-top" src="{{ asset('img/' ~ article.image) }}" alt="image de jeu">
               <div class="card-body">
                 <h4 class="card-title">
                   {{  article.titre  | capitalize}} 
@@ -92,11 +97,44 @@
     {% endfor %}
   </div>
 </div>
+<h2 class="sousTitre">Derniers Sujets</h2>
+<div class="articlesList">
+    <a id="newTopicBtn" class="btn btn-primary" href="{{ url('newTopic')}}">Nouveau sujet </a>
+    <table class="table table-bordered" id="dataTable" width="100%" >
+                    
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Auteur</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <th>Sujet</th>
+                <th>Auteur</th>  
+            </tr>
+        </tfoot>
+        <tbody>
+        {% for topic in afficherTopic %}
+        
+            <tr class="forums">
+                <td><a href=" {{ url('topic.details', { id : topic.id}) }}"> {{topic.sujet }}</a></td>
+                <td>{{topic.auteur }}</td>
+                
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
 
 {% block javascripts %}
 <script src="{{ asset('js/affichageArticle.js') }}"></script>
+<script src="{{ asset('js/affichageForum.js') }}"></script>
 
 {% endblock %}
     

@@ -14,7 +14,7 @@ class CategoryTopic
 
     /**
      * One product has many features. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="Topic", mappedBy="topic")
+     * @ORM\OneToMany(targetEntity="Topic", mappedBy="categoryTopic")
      */
     private $topic;
 

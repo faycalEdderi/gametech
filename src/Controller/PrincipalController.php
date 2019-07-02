@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TopicRepository;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,13 +13,16 @@ class PrincipalController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(ArticleRepository $articleRepository):Response
+    public function index(ArticleRepository $articleRepository, TopicRepository $topicRepository):Response
     {
        $results = $articleRepository->findAll();
+       $topic = $topicRepository->findAll();
        return $this->render('principal/accueil.html.twig', [
-           'afficher'=> $results
+           'afficher'=> $results,
+           'afficherTopic'=> $topic
        ]);
     }
+
 
      /**
      * @Route("/cgu", name="cgu")

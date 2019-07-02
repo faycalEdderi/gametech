@@ -12,7 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ForumController extends AbstractController
-{/**
+{
+    /**
      * @Route("/forum", name="forum")
      */
     public function listTopic(TopicRepository $topicRepository):Response
