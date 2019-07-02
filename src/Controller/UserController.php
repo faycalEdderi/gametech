@@ -7,10 +7,13 @@ use App\Form\ModifMdpType;
 use App\Form\ModifUserType;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class UserController extends AbstractController
 {
@@ -51,6 +54,37 @@ class UserController extends AbstractController
         ]);
    
     }
+
+    // suppression de compte utilisateur
+	/**
+	 * @Route("/user/deleteUser/{id}", name="user.supprimer")
+	 */
+	public function userDelete(int $id, UserRepository $userRepository, ObjectManager $objectManager, TokenStorageInterface $tokenStorage, SessionInterface $session):Response
+	{   
+
+        
+    
+		// sélection de l'entité par son identifiant
+        $entity = $userRepository->find($id);
+        
+		// suppression de l'entité
+        $objectManager->remove($entity); 
+
+        
+        $objectManager->flush();
+        $tokenStorage->setToken(null);
+        $session->invalidate();
+
+        // message
+        $this->addFlash('notice', "Votre compte a été supprimé");
+        return $this->redirectToRoute('accueil');
+        
+        
+       
+		
+     
+	}
+
 
 //USER MODIFIE MDP
 

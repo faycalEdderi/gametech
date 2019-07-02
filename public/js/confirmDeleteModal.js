@@ -16,7 +16,3 @@ function clickBtnDelete(event){
 	btnConfirmModal.setAttribute('href', href);
 }
 
-// syntaxe arrow function (ES6) : fonction fléchée
-/*btnDelete.forEach( function(value){
-	value.addEventListener('click', clickBtnDelete;
-} );*/

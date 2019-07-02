@@ -83,6 +83,7 @@ class DevController extends AbstractController
 	 */
 	public function userDelete(int $id, UserRepository $userRepository, ObjectManager $objectManager):Response
 	{
+        
 		// sélection de l'entité par son identifiant
 		$entity = $userRepository->find($id);
 
