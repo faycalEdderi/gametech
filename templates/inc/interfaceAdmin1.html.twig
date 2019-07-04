@@ -54,7 +54,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Liste des inscrits</h6>
-            <a class="collapse-item" href="{{ asset('/admin/user') }}">Afficher les utilisateurs</a>
+            <a class="collapse-item" href="{{ url('user.dev') }}">Afficher les utilisateurs</a>
             <a class="collapse-item" href="{{ url('new.user') }}">Ajouter un utilisateur</a>
             
         </div>
@@ -68,7 +68,7 @@
         <div id="collapseForum" class="collapse" aria-labelledby="headingForum" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gestion des sujet</h6>
-            <a class="collapse-item" href="{{ asset('/admin/forum') }}">Afficher les sujets</a>
+            <a class="collapse-item" href="{{ url('forum.dev') }}">Afficher les sujets</a>
             
             
         </div>
@@ -83,8 +83,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Paramètres articles</h6>
-            <a class="collapse-item" href="{{ asset('/admin/articles') }}">Modifier articles</a>
-            <a class="collapse-item"  href="{{ asset('/admin/new/article') }}">Ajouter un article</a>
+            <a class="collapse-item" href="{{ url('articles.dev') }}">Modifier articles</a>
+            <a class="collapse-item"  href="{{ url('new_article') }}">Ajouter un article</a>
             
           </div>
         </div>
@@ -133,6 +133,7 @@
              <a class="collapse-item active" href="{{ url('ps4') }}">Playstation 4</a>
               <a class="collapse-item active" href="{{ url('xbox') }}">Xbox One</a>
                <a class="collapse-item active" href="{{ url('pc') }}">PC</a>
+               <a class="collapse-item active" href="{{ url('forum') }}">Forum</a>
           </div>
         </div>
       </li>

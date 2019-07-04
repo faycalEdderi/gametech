@@ -31,7 +31,8 @@ class SecurityController extends AbstractController
     public function logout(): Response
     {
        
-
+            // message
+        $this->addFlash('notice', "Vous êtes déconnecté");
         return $this->render('principal/accueil.html.twig');
     }
 }

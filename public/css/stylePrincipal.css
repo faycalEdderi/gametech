@@ -221,13 +221,11 @@ display: block;
 
 
 
-/*Menu burger*/
+
 
 
 /*AFFICHAGE SUR PETIT ECRAN*/
 @media only screen and (max-width: 600px) {
-
-	
 
 	.sousMenu{
 		
@@ -240,19 +238,12 @@ display: block;
 		width: 100%;
 		
 	}
-
 	.articlesList{
-
 		width: 100%;
-		
-		
 	}
 
 	.button{
-		
-		width : 100%;
-		
-			
+		width : 100%;	
 	}
 	
   }

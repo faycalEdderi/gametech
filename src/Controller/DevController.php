@@ -22,7 +22,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class DevController extends AbstractController
 {
     /**
-     * @Route("/admin", name="accueil.dev")
+     * @Route("/admin.interface", name="accueil.dev")
      */
     public function accueil():Response
     {
@@ -31,7 +31,7 @@ class DevController extends AbstractController
         return $this->render('dev/accueil.html.twig');
     }
 /**
- * @Route("/admin/articles", name="articles.dev")
+ * @Route("/admin.interface/articles", name="articles.dev")
  */
     public function index(ArticleRepository $articleRepository):Response
     {
@@ -44,7 +44,7 @@ class DevController extends AbstractController
 
     // suppression d'un article
 	/**
-	 * @Route("/admin/delete/{id}", name="article.delete")
+	 * @Route("/admin.interface/delete/{id}", name="article.delete")
 	 */
 	public function delete(int $id, ArticleRepository $articleRepository, ObjectManager $objectManager):Response
 	{
@@ -66,7 +66,7 @@ class DevController extends AbstractController
 	}
 
 	 /**
-     * @Route("/admin/user", name="user.dev")
+     * @Route("/admin.interface/user", name="user.dev")
      */
     public function user(UserRepository $userRepository):Response
     {
@@ -79,7 +79,7 @@ class DevController extends AbstractController
 
     // suppression d'un utilisateur
 	/**
-	 * @Route("/admin/deleteUser/{id}", name="user.delete")
+	 * @Route("/admin.interface/deleteUser/{id}", name="user.delete")
 	 */
 	public function userDelete(int $id, UserRepository $userRepository, ObjectManager $objectManager):Response
 	{
@@ -101,7 +101,7 @@ class DevController extends AbstractController
 	}
 
     /**
-     * @Route("admin/new/user", name="new.user")
+     * @Route("/admin.interface/new/user", name="new.user")
      */
     public function newUser(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {
@@ -139,7 +139,7 @@ class DevController extends AbstractController
     
 
     /**
-     * @Route("/admin/updateUser/{id}", name="user.update")
+     * @Route("/admin.interface/updateUser/{id}", name="user.update")
      */
     public function updateUser(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {
@@ -167,7 +167,7 @@ class DevController extends AbstractController
     }
     
     /**
-     * @Route("/admin/modifMdp/{id}", name="modif.mdp")
+     * @Route("/admin.interface/modifMdp/{id}", name="modif.mdp")
      */
     public function modifMdp(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {
@@ -203,7 +203,7 @@ class DevController extends AbstractController
 
 // AFFICHAGE DES MESSAGES DU FORMULAIRE DE CONTACT
      /**
-     * @Route("/admin/msg", name="msg.dev")
+     * @Route("/admin.interface/msg", name="msg.dev")
      */
     public function msg(ContactRepository $contactRepository):Response
     {
@@ -215,7 +215,7 @@ class DevController extends AbstractController
     }
 
     /**
-     * @Route("/admin/message/{id}", name="message.details")
+     * @Route("/admin.interface/message/{id}", name="message.details")
      */
     public function details(int $id, ContactRepository $contactRepository):Response
     {
@@ -228,7 +228,7 @@ class DevController extends AbstractController
 
     // suppression d'un message
 	/**
-	 * @Route("/admin/deleteMsg/{id}", name="msg.delete")
+	 * @Route("/admin.interface/deleteMsg/{id}", name="msg.delete")
 	 */
 	public function msgDelete(int $id, ContactRepository $contactRepository, ObjectManager $objectManager):Response
 	{
@@ -251,7 +251,7 @@ class DevController extends AbstractController
 //Affichage des Forum 
 
  /**
-     * @Route("/admin/forum", name="forum.dev")
+     * @Route("/admin.interface/forum", name="forum.dev")
      */
     public function forum(TopicRepository $topicRepository):Response
     {
@@ -266,7 +266,7 @@ class DevController extends AbstractController
     //Suppression FORUM
 
 	/**
-	 * @Route("/admin/deleteTopic/{id}", name="topic.delete")
+	 * @Route("/admin.interface/deleteTopic/{id}", name="topic.delete")
 	 */
 	public function topicDelete(int $id, TopicRepository $topicRepository, ObjectManager $objectManager):Response
 	{
@@ -280,7 +280,7 @@ class DevController extends AbstractController
 		
 
 		// message
-		//$this->addFlash('notice', "Le produit a été supprimé");
+		$this->addFlash('notice', "Le forum a été supprimé");
 
 		// redirection
 		return $this->redirectToRoute('forum.dev');
