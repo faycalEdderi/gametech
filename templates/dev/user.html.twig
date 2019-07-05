@@ -46,12 +46,12 @@
                       
                     </tr>
                   </tfoot>
-
-                  {% for user in afficher %}
+                {# filter empecher la modification de l'admin #}
+                  {% for user in afficher | filter(user => user.roles[0]!= "ROLE_ADMIN") -%}
                   <tbody>
                     <tr>
-                    {# Empecher la modification de l'admin !#}
-                    {% if user.roles[0] != "ROLE_ADMIN" %}
+                    
+                    
                       <td>{{user.email }}</td>
                       <td>{{user.nom | capitalize}}</td>
                       <td>{{user.prenom | capitalize}}</td>
@@ -67,7 +67,7 @@
                       
                       <a href="{{ url('modif.mdp', {id: user.id}) }}">Modifier mot de passe ? </a>
                       
-                     {% endif %}
+                     
                      
                     </tr>
                     {% endfor %}
