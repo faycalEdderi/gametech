@@ -51,7 +51,7 @@
                   <tbody>
                     <tr>
                     {# Empecher la modification de l'admin !#}
-                    {% if user.email != "zeraisse@live.fr" %}
+                    {% if user.roles[0] != "ROLE_ADMIN" %}
                       <td>{{user.email }}</td>
                       <td>{{user.nom | capitalize}}</td>
                       <td>{{user.prenom | capitalize}}</td>
