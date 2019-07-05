@@ -16,9 +16,12 @@
     
     <a  href="{{ url('profile.update', {id : app.user.id}) }}" class="btn w-25 d-block mr-auto ml-auto">Modifier mes informations</a>
     <a href="{{ url('user.changeMdp', {id : app.user.id}) }}" class="btn w-25 d-block mr-auto ml-auto">Modifier mot de passe</a>
-
+    
+    {# empecher la suppression du compte administrateur #}
+{% if app.user.roles[0] != "ROLE_ADMIN" %}
     <a class="issou btn btn-danger w-25 d-block mr-auto ml-auto" data-toggle="modal" data-target="#exampleModal" href="{{ url('user.supprimer', {id: app.user.id}) }}" class="btn">Supprimer mon compte</a>
-
+    
+{% endif %}
 </ul>
   
 

@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class UserController extends AbstractController
 {
       /**
-     * @Route("/user.gametech/profile", name="user.profile")
+     * @Route("/user/profile", name="user.profile")
      */
     public function profile():Response
     {
@@ -27,7 +27,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user.gametech/modifierProfile/{id}", name="profile.update")
+     * @Route("/user/modifierProfile/{id}", name="profile.update")
      */
     public function modifierProfile(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {
@@ -57,7 +57,7 @@ class UserController extends AbstractController
 
     // suppression de compte utilisateur
 	/**
-	 * @Route("/user.gametech/deleteUser/{id}", name="user.supprimer")
+	 * @Route("/user/deleteUser/{id}", name="user.supprimer")
 	 */
 	public function userDelete(int $id, UserRepository $userRepository, ObjectManager $objectManager, TokenStorageInterface $tokenStorage, SessionInterface $session):Response
 	{   
@@ -88,8 +88,8 @@ class UserController extends AbstractController
 
 //USER MODIFIE MDP
 
-/**
-     * @Route("/user.gametech/mdp/{id}", name="user.changeMdp")
+    /**
+     * @Route("/user/mdp/{id}", name="user.changeMdp")
      */
     public function changeMdp(Request $request, int $id = null, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder):Response
     {

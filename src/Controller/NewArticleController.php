@@ -15,8 +15,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class NewArticleController extends AbstractController
 {
     /**
-     * @Route("/admin.interface/new_article", name="new_article")
-     * @Route("/admin.interface/update/{id}", name="article.update")
+     * @Route("/admin/new_article", name="new_article")
+     * @Route("/admin/update/{id}", name="article.update")
      */
     public function index(Request $request, ObjectManager $objectManager, int $id = null, ArticleRepository $articleRepository):Response
     {
