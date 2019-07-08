@@ -24,6 +24,16 @@ class PrincipalController extends AbstractController
     }
 
 
+    /**
+     * @Route("/notfound", name="notfound")
+     */
+    public function notFound():Response
+    {
+       
+       return $this->render('404/404.html.twig');
+    }
+
+
      /**
      * @Route("/cgu", name="cgu")
      */
