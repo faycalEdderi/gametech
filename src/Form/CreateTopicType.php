@@ -34,11 +34,12 @@ class CreateTopicType extends AbstractType
 	            ]
 			])
             ->add('auteur', HiddenType::class, [
-            	
-		            
-		            
-	            
-			])
+
+				'constraints' => [
+		            new NotBlank() 
+	            ]
+ 
+				])
             ->add('message', TextareaType::class, [
             	'constraints' => [
 		            new NotBlank([

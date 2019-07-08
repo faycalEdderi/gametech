@@ -13,9 +13,6 @@ $('#togglePc').click(function(){
 	$('.PC').toggle(1000);
 });
 
-
-
-
 $('#toggleSwitch').click(function(){
 
 	$('.nintendo').toggle(1000);

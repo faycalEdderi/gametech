@@ -41,10 +41,12 @@ class ForumController extends AbstractController
      */
     public function newTopic(Request $request, ObjectManager $objectManager):Response
     {
-		//condition si l'id n'est pas vide 
+        $userName = $this->getUser()->getPrenom();
+        
         $entity = new Topic();
+        $entity->setAuteur($userName);
         $type = CreateTopicType::class;
-
+        
 		$form = $this->createForm($type, $entity);
         $form->handleRequest($request);
         
@@ -57,8 +59,6 @@ class ForumController extends AbstractController
             // message
             $this->addFlash('notice', 'Le topic a bien été créé');
             
-		
- 
             return $this->redirectToRoute('forum');
          }
 

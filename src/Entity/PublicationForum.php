@@ -29,7 +29,7 @@ class PublicationForum
       /**
 	
 	 * @ORM\ManyToOne(targetEntity="Topic", inversedBy="publication")
-	 * @ORM\JoinColumn(name="topic_id", referencedColumnName="id")
+	 * @ORM\JoinColumn(name="topic_id", referencedColumnName="id", onDelete="CASCADE")
 	 */
 	private $topic;
 

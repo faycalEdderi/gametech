@@ -21,7 +21,7 @@
           <div class="col-sm-6 {{article.categorie.name}}  col-md-4  col-xl-3 mb-4 ">
           <a href=" {{ url('article.details', { id : article.id}) }}">
             <div class="card h-100">
-              <img class="card-img-top" src="{{ asset('img/' ~ article.image) }}" alt="">
+              <img class="card-img-top" src="{{ asset('img/' ~ article.image) }}" alt="image gaming">
               <div class="card-body">
                 <h4 class="card-title">
                   {{  article.titre  | capitalize}} 

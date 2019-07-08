@@ -13,6 +13,7 @@ use App\Repository\TopicRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\ContactRepository;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\PublicationForumRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -79,7 +80,7 @@ class DevController extends AbstractController
 
     // suppression d'un utilisateur
 	/**
-	 * @Route("/admin.interface/deleteUser/{id}", name="user.delete")
+	 * @Route("/admin/deleteUser/{id}", name="user.delete")
 	 */
 	public function userDelete(int $id, UserRepository $userRepository, ObjectManager $objectManager):Response
 	{
@@ -228,7 +229,7 @@ class DevController extends AbstractController
 
     // suppression d'un message
 	/**
-	 * @Route("/admin.interface/deleteMsg/{id}", name="msg.delete")
+	 * @Route("/admin/deleteMsg/{id}", name="msg.delete")
 	 */
 	public function msgDelete(int $id, ContactRepository $contactRepository, ObjectManager $objectManager):Response
 	{
@@ -251,7 +252,7 @@ class DevController extends AbstractController
 //Affichage des Forum 
 
  /**
-     * @Route("/admin.interface/forum", name="forum.dev")
+     * @Route("/admin/forum", name="forum.dev")
      */
     public function forum(TopicRepository $topicRepository):Response
     {
@@ -266,12 +267,15 @@ class DevController extends AbstractController
     //Suppression FORUM
 
 	/**
-	 * @Route("/admin.interface/deleteTopic/{id}", name="topic.delete")
+	 * @Route("/admin/deleteTopic/{id}", name="topic.delete")
 	 */
 	public function topicDelete(int $id, TopicRepository $topicRepository, ObjectManager $objectManager):Response
 	{
 		// sélection de l'entité par son identifiant
-		$entity = $topicRepository->find($id);
+        $entity = $topicRepository->find($id);
+        
+       
+        
 
 		// suppression de l'entité
 		$objectManager->remove($entity);

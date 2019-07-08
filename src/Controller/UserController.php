@@ -69,8 +69,6 @@ class UserController extends AbstractController
         
 		// suppression de l'entité
         $objectManager->remove($entity); 
-
-        
         $objectManager->flush();
         $tokenStorage->setToken(null);
         $session->invalidate();

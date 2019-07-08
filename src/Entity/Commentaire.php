@@ -26,7 +26,7 @@ class Commentaire
     /**
 	
 	 * @ORM\ManyToOne(targetEntity="Article", inversedBy="commentaire")
-	 * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
+	 * @ORM\JoinColumn(name="article_id", referencedColumnName="id", onDelete="CASCADE")
 	 */
 	private $article;
 
