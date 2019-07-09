@@ -10,11 +10,11 @@
 
  <h1 class="title">{{article.titre | capitalize}}</h1>
   <div class="col-sm-12  col-md-8 contenu  mb-4">
-	<img class="img-fluid" src="{{ asset('img/' ~ article.image) }}" alt="image gaming">
+	<img class="img-fluid d-block mx-auto" src="{{ asset('img/' ~ article.image) }}" alt="image gaming">
 
 	<h2 class="title">{{article.accroche | capitalize}} </h2>
 
-	<p class="text-align lead">{{article.texte | capitalize}} </p>
+	<p class=" lead text-justify  ">{{article.texte | capitalize}} </p>
   </div>
             
         
@@ -45,7 +45,7 @@
 					<hr>
 					<div class="commentaire">
 					<p>De : {{ commentaire.userName }}</p>
-					<p> {{ commentaire.message }}</p>
+					<p class="text-justify"> {{ commentaire.message }}</p>
 					</div>
 					
 				{% endfor %}

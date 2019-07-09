@@ -8,7 +8,7 @@
             <h2 class=" title"> {{afficher.sujet }}</h2>
             <div class="commentaire topicPrincipal">
               <p>De : {{afficher.auteur }}</p>
-              <p>{{afficher.message }}</p>
+              <p class="text-justify">{{afficher.message }}</p>
             </div>
 <div class="row mt-3">
 		<div class="col">
@@ -19,7 +19,7 @@
 						<hr>
 					<div class="commentaire">
 						<p>De : {{ affichage.userName }}</p>
-						<p>Réponse: {{ affichage.reponse }}</p>
+						<p class="text-justify">Réponse: {{ affichage.reponse }}</p>
 					</div>
 						
 				{% endfor %}
