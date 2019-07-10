@@ -71,6 +71,10 @@
 		
 }
 
+#accordionSidebar span:hover{
+	cursor: pointer;
+}
+
 
 
 

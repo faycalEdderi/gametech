@@ -47,28 +47,29 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
+        <a id="linkUser" class="nav-link d-block text-center "  >
+          
           <span>Utilisateur</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Liste des inscrits</h6>
-            <a class="collapse-item" href="{{ url('user.dev') }}">Afficher les utilisateurs</a>
-            <a class="collapse-item" href="{{ url('new.user') }}">Ajouter un utilisateur</a>
+        
+          <div id="infoUser" class="menuInfo">
+          <div class="bg-white py-2 m-2  rounded">
+            <h6 class="text-center" >Liste des inscrits</h6>
+            <a class="d-block text-center" href="{{ url('user.dev') }}">Afficher les utilisateurs</a>
+            <a class="d-block text-center" href="{{ url('new.user') }}">Ajouter un utilisateur</a>
             
         </div>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForum" aria-expanded="true" aria-controls="collapseForum">
-          <i class="fas fa-fw fa-cog"></i>
+        <a id="linkForum" class="nav-link d-block text-center "  >
+          
           <span>Forum</span>
         </a>
-        <div id="collapseForum" class="collapse" aria-labelledby="headingForum" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Gestion des sujet</h6>
-            <a class="collapse-item" href="{{ url('forum.dev') }}">Afficher les sujets</a>
+        <div id="infoForum" class="menuInfo"  >
+          <div class="bg-white py-2 m-2  rounded">
+            <h6 class="text-center" >Gestion des sujet</h6>
+            <a class="d-block text-center" href="{{ url('forum.dev') }}">Afficher les sujets</a>
             
             
         </div>
@@ -76,28 +77,28 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
+        <a id="linkArticle" class="nav-link d-block text-center " >
+          
           <span>Articles</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Paramètres articles</h6>
-            <a class="collapse-item" href="{{ url('articles.dev') }}">Modifier articles</a>
-            <a class="collapse-item"  href="{{ url('new_article') }}">Ajouter un article</a>
+        <div  id="infoArticle" class="menuInfo">
+          <div class="bg-white py-2 m-2 rounded">
+            <h6 class="text-center">Paramètres articles</h6>
+            <a class="d-block text-center" href="{{ url('articles.dev') }}">Modifier articles</a>
+            <a class="d-block text-center"  href="{{ url('new_article') }}">Ajouter un article</a>
             
           </div>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
+        <a id="linkContact"  class="nav-link d-block text-center " >
+          
           <span>Contact</span>
         </a>
-        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Message</h6>
-            <a class="collapse-item" href="{{ url('msg.dev') }}">Boite de reception</a>
+        <div id="infoContact" class="menuInfo ">
+          <div class="bg-white py-2 m-2   rounded">
+            <h6 class="text-center">Message</h6>
+            <a class="d-block text-center" href="{{ url('msg.dev') }}">Boite de reception</a>
             
             
           </div>
@@ -113,27 +114,27 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+      <li class="nav-item">
+        <a id="linkPages"  class="nav-link d-block text-center ">
+          
           <span>Pages</span>
         </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Pages d'identification:</h6>
-            <a class="collapse-item" href="{{ url('app_login') }}">Connexion</a>
-            <a class="collapse-item" href="{{ url('app_register') }}">Inscription</a>
-            <a class="collapse-item" href="forgot-password.html">Mot de passe oublié</a>
+        <div id="infoPages">
+          <div class="bg-white py-2 m-2   rounded">
+            <h6 class="text-center"> <span>Pages d'identification:</h6>
+            <a class="d-block text-center" href="{{ url('app_login') }}">Connexion</a>
+            <a class="d-block text-center" href="{{ url('app_register') }}">Inscription</a>
+            <a class="d-block text-center" href="{{url('notfound')}}">Mot de passe oublié</a>
             <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Autres Pages:</h6>
-            <a class="collapse-item" href="{{url('accueil')}}">Accueil</a>
-            <a class="collapse-item" href="{{url('contact')}}">Contact</a>
+            <h6 class="text-center">Autres Pages:</h6>
+            <a class="d-block text-center" href="{{url('accueil')}}">Accueil</a>
+            <a class="d-block text-center" href="{{url('contact')}}">Contact</a>
             
-            <a class="collapse-item active" href="{{ url('nintendo') }}">Nintendo Switch</a>
-             <a class="collapse-item active" href="{{ url('ps4') }}">Playstation 4</a>
-              <a class="collapse-item active" href="{{ url('xbox') }}">Xbox One</a>
-               <a class="collapse-item active" href="{{ url('pc') }}">PC</a>
-               <a class="collapse-item active" href="{{ url('forum') }}">Forum</a>
+            <a class="d-block text-center" href="{{ url('nintendo') }}">Nintendo Switch</a>
+             <a class="d-block text-center" href="{{ url('ps4') }}">Playstation 4</a>
+              <a class="d-block text-center" href="{{ url('xbox') }}">Xbox One</a>
+               <a class="d-block text-center" href="{{ url('pc') }}">PC</a>
+               <a class="d-block text-center" href="{{ url('forum') }}">Forum</a>
           </div>
         </div>
       </li>
@@ -204,4 +205,5 @@
  
         {% endblock %}
 
+        
         
