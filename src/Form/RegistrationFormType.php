@@ -5,13 +5,18 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Validator\Constraints\LessThanOrEqual;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
+
 
 class RegistrationFormType extends AbstractType
 {
@@ -19,10 +24,11 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
+              
             	'constraints' => [
             		new NotBlank([
-            			'message' => "Veuillez saisir votre nom"
-		            ]),
+            			'message' => "Veuillez saisir votre email"
+                    ]), 
 	            ]
             ])
             ->add('nom', TextType::class, [
@@ -71,18 +77,31 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
 		            	'min' => 1,
-			            'max' => 3,
-			            'minMessage' => 'Votre age ne peut etre inferieur à {{ limit }} nombre ',
-			            'maxMessage' => 'votre age ne peut pas contenir {{ limit }} nombres',
-		            ])
+			            'max' => 2,
+			            'minMessage' => 'Votre age ne peut etre inferieur à {{ limit }} chiffres ',
+			            'maxMessage' => 'votre age ne peut pas contenir plus de {{ limit }} chiffres',
+                    ]), 
+                    new LessThanOrEqual([
+                        'value'=> 99,
+                        'message' => "Votre age ne doit pas depasser 99 ans" 
+                    ]), 
+                    new GreaterThanOrEqual([
+                        'value'=> 15,
+                        'message' => "Vous etes trop jeune pour vous inscrire" 
+                    ])
 	            ]
             ])
-            ->add('sexe', TextType::class, [
-            	'constraints' => [
-            		new NotBlank([
-            			'message' => "Veuillez saisir votre genre"
-		            ]),
-	            ]
+            ->add('sexe', ChoiceType::class, [
+                'expanded'=> true,
+                'multiple'=>false,
+                'choices'=> [
+                    'gameure'=>'homme', 
+                    'gameuse'=>'femme'
+                ]
+                
+                    
+                
+            	
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
