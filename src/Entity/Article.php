@@ -72,7 +72,7 @@ class Article
         return $this->titre;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitre(?string $titre): self
     {
         $this->titre = $titre;
 
@@ -96,7 +96,7 @@ class Article
         return $this->texte;
     }
 
-    public function setTexte(string $texte): self
+    public function setTexte(?string $texte): self
     {
         $this->texte = $texte;
 
@@ -107,7 +107,7 @@ class Article
         return $this->accroche;
     }
 
-    public function setAccroche(string $accroche): self
+    public function setAccroche(?string $accroche): self
     {
         $this->accroche = $accroche;
 

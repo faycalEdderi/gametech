@@ -91,7 +91,13 @@ class ModifUserType extends AbstractType
                 'choices'=> [
                     'gameure'=>'homme', 
                     'gameuse'=>'femme'
-                ]
+				],
+				'constraints' => [
+            		new NotBlank([
+            			'message' => "Veuillez choisir un genre"
+					]),
+				]
+				
             ]);
     }
 

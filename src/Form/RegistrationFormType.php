@@ -97,7 +97,12 @@ class RegistrationFormType extends AbstractType
                 'choices'=> [
                     'gameure'=>'homme', 
                     'gameuse'=>'femme'
-                ]
+                ], 
+                'constraints' => [
+            		new NotBlank([
+            			'message' => "Veuillez choisir un genre"
+					]),
+				]
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
