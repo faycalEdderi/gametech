@@ -1,21 +1,33 @@
 {% extends 'administrateur.html.twig' %}
 
-{% block title %}Modifier mot de passe{% endblock %}
-
 {% block body %}
 
-          {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
-        <div class="form-group newArticle">
+        
 
-             {{ form_label(form.password, "new mdp : " | capitalize) }} 
-             {{ form_widget(form.password)}}
-             {#{ form_errors(form.email) }#}
-             <button class="btn mt-4 btn-primary">Valider</button>
-        </div>
-        {{ form_end(form) }}
+        
+<h1 class="h3 mb-4 text-gray-800 text-center">Utilisateur </h1>
+<p class="text-center lead">Veuillez à bien entrer deux fois le même mot de passe dans les champs ci-dessous !</p>
 
+  <div class="modifMdp"> 
+    {{ form_start(form, { attr : { novalidate : 'novalidate' } }) }}
+    <div class="form-group newArticle">
 
+            
+      {{ form_label(form.password, "Mot de passe : " | capitalize) }} 
+      {{ form_widget(form.password)}}
+      {{ form_errors(form.password) }}
 
+             
+
+      <button class="btn mt-4 btn-primary">Valider</button>
+    </div>
+    {{ form_end(form) }}
+  </div>
 
 
 {% endblock %}
+
+
+
+
+ 

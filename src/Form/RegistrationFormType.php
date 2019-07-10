@@ -98,10 +98,6 @@ class RegistrationFormType extends AbstractType
                     'gameure'=>'homme', 
                     'gameuse'=>'femme'
                 ]
-                
-                    
-                
-            	
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

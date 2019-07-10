@@ -192,7 +192,7 @@ class DevController extends AbstractController
             $entityManager->flush();
 
  
-            return $this->redirectToRoute('user.profile');
+            return $this->redirectToRoute('user.dev');
          }
 
         return $this->render('dev/modifMdp.html.twig', [

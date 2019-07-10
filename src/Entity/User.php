@@ -70,7 +70,7 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -143,7 +143,7 @@ class User implements UserInterface
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
@@ -155,7 +155,7 @@ class User implements UserInterface
         return $this->prenom;
     }
 
-    public function setPrenom(string $prenom): self
+    public function setPrenom(?string $prenom): self
     {
         $this->prenom = $prenom;
 
@@ -167,7 +167,7 @@ class User implements UserInterface
         return $this->Region;
     }
 
-    public function setRegion(string $Region): self
+    public function setRegion(?string $Region): self
     {
         $this->Region = $Region;
 
@@ -179,7 +179,7 @@ class User implements UserInterface
         return $this->age;
     }
 
-    public function setAge(int $age): self
+    public function setAge(?int $age): self
     {
         $this->age = $age;
 
@@ -191,7 +191,7 @@ class User implements UserInterface
         return $this->sexe;
     }
 
-    public function setSexe(string $sexe): self
+    public function setSexe(?string $sexe): self
     {
         $this->sexe = $sexe;
 

@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 
@@ -42,17 +43,21 @@ class ModifUserType extends AbstractType
 	            ]
             ])
             ->add('prenom', TextType::class, [
+				
             	'constraints' => [
             		new NotBlank([
+						
             			'message' => "Veuillez saisir un prenom"
-                    ]),
+					]),
+					
                     new Length([
 		            	'min' => 2,
 			            'max' => 50,
 			            'minMessage' => 'Le prenom doit comporter au moins {{ limit }} caractères',
 			            'maxMessage' => 'Le prenom ne doit pas depasser  {{ limit }} caractères',
 		            ])
-	            ]
+				],
+				
             ])
             ->add('region', TextType::class, [
             	'constraints' => [
@@ -80,8 +85,14 @@ class ModifUserType extends AbstractType
 		            ])
 	            ]
             ])
-            ->add('sexe')
-        ;
+			->add('sexe', ChoiceType::class, [
+                'expanded'=> true,
+                'multiple'=>false,
+                'choices'=> [
+                    'gameure'=>'homme', 
+                    'gameuse'=>'femme'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
